@@ -94,6 +94,8 @@ export default async function CalculatorPage({
             ? "Future Value"
             : slug === "emi-calculator"
             ? "Monthly EMI"
+            : slug === "income-tax-calculator"
+            ? "Estimated Tax"
             : "Result"
         }
       >
