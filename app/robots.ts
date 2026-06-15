@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://finwise.in/sitemap.xml",
+    sitemap: "https://finwise-silk.vercel.app/sitemap.xml",
   };
 }

@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { calculators } from "@/data/calculators";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://finwise.in";
+  const baseUrl = "https://finwise-silk.vercel.app";
 
   const calculatorPages = calculators.map(
     (calculator) => ({
