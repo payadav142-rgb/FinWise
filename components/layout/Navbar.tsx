@@ -33,6 +33,7 @@ export default function Navbar() {
           >
             About
           </Link>
+          <a href="/blog">Blog</a>
 
           <Link
             href="/contact"

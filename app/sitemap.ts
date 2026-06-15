@@ -1,5 +1,7 @@
 import { MetadataRoute } from "next";
 import { calculators } from "@/data/calculators";
+import { blogs } from "@/data/blogs";
+
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://finwise-silk.vercel.app";
@@ -7,6 +9,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const calculatorPages = calculators.map(
     (calculator) => ({
       url: `${baseUrl}/calculators/${calculator.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    })
+  );
+
+  const blogPages = blogs.map(
+    (blog) => ({
+      url: `${baseUrl}/blog/${blog.slug}`,
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.8,
@@ -57,5 +68,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
 
     ...calculatorPages,
+    ...blogPages,
   ];
+  
 }
