@@ -66,57 +66,111 @@ export default async function CalculatorPage({
       slug as keyof typeof articles
     ];
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://finwise-silk.vercel.app",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Calculators",
+        item:
+          "https://finwise-silk.vercel.app/calculators",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: calculator.title,
+        item: `https://finwise-silk.vercel.app/calculators/${slug}`,
+      },
+    ],
+  };
+
+  const webpageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: calculator.title,
+    description: calculator.description,
+    url: `https://finwise-silk.vercel.app/calculators/${slug}`,
+  };
+
   return (
-    <main className="mx-auto max-w-5xl px-6 py-16">
-      <div className="mb-4 inline-block rounded-full border px-3 py-1 text-sm">
-        {calculator.category}
-      </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbSchema
+          ),
+        }}
+      />
 
-      <h1 className="text-5xl font-bold">
-        {calculator.title}
-      </h1>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            webpageSchema
+          ),
+        }}
+      />
 
-      <p className="mt-4 text-lg text-muted-foreground">
-        {calculator.description}
-      </p>
+      <main className="mx-auto max-w-5xl px-6 py-16">
+        <div className="mb-4 inline-block rounded-full border px-3 py-1 text-sm">
+          {calculator.category}
+        </div>
 
-      <CalculatorLayout
-        title={
-          slug === "sip-calculator"
-            ? "Maturity Value"
-            : slug === "fd-calculator"
-            ? "Maturity Amount"
-            : slug === "rd-calculator"
-            ? "Maturity Amount"
-            : slug === "cagr-calculator"
-            ? "CAGR"
-            : slug === "lumpsum-calculator"
-            ? "Future Value"
-            : slug === "emi-calculator"
-            ? "Monthly EMI"
-            : slug === "income-tax-calculator"
-            ? "Estimated Tax"
-            : "Result"
-        }
-      >
-        {getCalculatorComponent(slug)}
-      </CalculatorLayout>
+        <h1 className="text-5xl font-bold">
+          {calculator.title}
+        </h1>
 
-      {content && (
-        <CalculatorContent
-          overview={content.overview}
-          howItWorks={content.howItWorks}
-          benefits={content.benefits}
-          faqs={content.faqs}
-        />
-      )}
+        <p className="mt-4 text-lg text-muted-foreground">
+          {calculator.description}
+        </p>
 
-      {article && (
-        <ArticleSection
-          title={article.title}
-          sections={article.sections}
-        />
-      )}
-    </main>
+        <CalculatorLayout
+          title={
+            slug === "sip-calculator"
+              ? "Maturity Value"
+              : slug === "fd-calculator"
+              ? "Maturity Amount"
+              : slug === "rd-calculator"
+              ? "Maturity Amount"
+              : slug === "cagr-calculator"
+              ? "CAGR"
+              : slug === "lumpsum-calculator"
+              ? "Future Value"
+              : slug === "emi-calculator"
+              ? "Monthly EMI"
+              : slug === "income-tax-calculator"
+              ? "Estimated Tax"
+              : "Result"
+          }
+        >
+          {getCalculatorComponent(slug)}
+        </CalculatorLayout>
+
+        {content && (
+          <CalculatorContent
+            overview={content.overview}
+            howItWorks={content.howItWorks}
+            benefits={content.benefits}
+            faqs={content.faqs}
+          />
+        )}
+
+        {article && (
+          <ArticleSection
+            title={article.title}
+            sections={article.sections}
+          />
+        )}
+      </main>
+    </>
   );
 }
