@@ -33,4 +33,39 @@ export const blogs = [
     description:
       "Understand Compound Annual Growth Rate and why investors use it to measure performance.",
   },
+
+  {
+    slug: "power-of-compounding",
+    title: "Power of Compounding Explained for Beginners",
+    description:
+      "Understand how compounding helps investments grow over time.",
+  },
+
+  {
+    slug: "how-to-start-sip",
+    title: "How to Start a SIP in India",
+    description:
+      "A beginner-friendly guide to starting SIP investments.",
+  },
+
+  {
+    slug: "rd-vs-sip",
+    title: "RD vs SIP – Which is Better?",
+    description:
+      "Compare recurring deposits and SIP investments.",
+  },
+
+  {
+    slug: "emi-vs-rent",
+    title: "EMI vs Rent – Which is Better?",
+    description:
+      "Understand whether buying or renting makes more financial sense.",
+  },
+
+  {
+    slug: "emergency-fund-guide",
+    title: "Why Everyone Needs an Emergency Fund",
+    description:
+      "Learn the importance of maintaining an emergency fund.",
+  },
 ];
