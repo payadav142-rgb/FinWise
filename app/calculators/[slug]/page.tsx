@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import CalculatorLayout from "@/components/calculator/CalculatorLayout";
 import CalculatorContent from "@/components/calculator/CalculatorContent";
 import ArticleSection from "@/components/calculator/ArticleSection";
-
+import RelatedCalculators from "@/components/calculator/RelatedCalculators";
 import { getCalculatorComponent } from "@/components/calculator/CalculatorRegistry";
 import { calculators } from "@/data/calculators";
 import { calculatorContent } from "@/data/calculatorContent";
@@ -170,6 +170,16 @@ export default async function CalculatorPage({
             sections={article.sections}
           />
         )}
+        {article && (
+  <ArticleSection
+    title={article.title}
+    sections={article.sections}
+  />
+)}
+
+<RelatedCalculators
+  currentSlug={slug}
+/>
       </main>
     </>
   );
