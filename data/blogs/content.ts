@@ -57,4 +57,65 @@ It represents the annualized rate of return of an investment over a specific per
 Investors use CAGR to compare the performance of investments such as mutual funds, stocks and business growth opportunities.
 `,
   },
+
+  "power-of-compounding": {
+    title: "Power of Compounding Explained for Beginners",
+    content: `
+Compounding is often called the eighth wonder of the world because it allows investments to grow exponentially over time.
+
+When investment returns are reinvested, future returns are earned not only on the original investment but also on previous gains.
+
+The earlier an investor starts investing, the greater the benefit of compounding.
+
+SIP investments and long-term mutual fund investments are among the most common ways investors benefit from compounding.
+`,
+  },
+
+  "how-to-start-sip": {
+    title: "How to Start a SIP in India",
+    content: `
+Starting a SIP is one of the easiest ways to begin investing in mutual funds.
+
+Investors should first identify financial goals, assess risk tolerance and select suitable mutual funds.
+
+After completing KYC requirements, investors can choose a SIP amount and investment date.
+
+Regular investing and long-term discipline are key to successful SIP investing.
+`,
+  },
+
+  "rd-vs-sip": {
+    title: "RD vs SIP – Which is Better for Wealth Creation?",
+    content: `
+Recurring Deposits and SIPs both encourage disciplined investing through monthly contributions.
+
+RDs offer predictable returns and lower risk, while SIPs provide market-linked returns with higher wealth creation potential over the long term.
+
+Investors should choose based on risk appetite, financial goals and investment horizon.
+`,
+  },
+
+  "emi-vs-rent": {
+    title: "EMI vs Rent – Which Option Makes More Sense?",
+    content: `
+The decision between paying rent and buying a home through a loan depends on finances, lifestyle and long-term goals.
+
+Renting offers flexibility and lower upfront costs.
+
+Buying a home through EMI payments helps build ownership but involves long-term financial commitments.
+
+Individuals should evaluate affordability, location and future plans before making a decision.
+`,
+  },
+
+  "emergency-fund-guide": {
+    title: "Why Everyone Needs an Emergency Fund",
+    content: `
+An emergency fund is money set aside for unexpected expenses such as medical emergencies, job loss or urgent repairs.
+
+Financial experts generally recommend maintaining at least three to six months of living expenses in an emergency fund.
+
+Keeping an emergency fund reduces dependence on loans and helps maintain financial stability during difficult situations.
+`,
+  },
 };
