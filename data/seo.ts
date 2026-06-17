@@ -34,4 +34,9 @@ export const seoData = {
     description:
       "Calculate future value of one-time investments.",
   },
+  "ppf-calculator": {
+  title: "PPF Calculator",
+  description:
+    "Calculate PPF maturity amount, interest earned and total investment instantly.",
+},
 };

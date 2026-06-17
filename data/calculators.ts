@@ -48,4 +48,11 @@ export const calculators = [
   description:
     "Calculate recurring deposit maturity amount and returns.",
 },
+{
+  slug: "ppf-calculator",
+  title: "PPF Calculator",
+  category: "Investment",
+  description:
+    "Calculate PPF maturity amount, interest earned and total investment.",
+},
 ];

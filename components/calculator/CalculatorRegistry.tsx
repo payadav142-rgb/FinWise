@@ -5,7 +5,7 @@ import EMIForm from "./EMIForm";
 import FDForm from "./FDForm";
 import CAGRForm from "./CAGRForm";
 import RDForm from "./RDForm";
-
+import PPFForm from "./PPFForm";
 
 export function getCalculatorComponent(slug: string) {
   switch (slug) {
@@ -28,6 +28,9 @@ export function getCalculatorComponent(slug: string) {
 
   case "fd-calculator":
   return <FDForm />;
+
+  case "ppf-calculator":
+  return <PPFForm />;
 
 
 

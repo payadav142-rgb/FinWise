@@ -145,6 +145,8 @@ export default async function CalculatorPage({
               ? "CAGR"
               : slug === "lumpsum-calculator"
               ? "Future Value"
+              : slug === "ppf-calculator"
+              ? "Maturity Amount"
               : slug === "emi-calculator"
               ? "Monthly EMI"
               : slug === "income-tax-calculator"
