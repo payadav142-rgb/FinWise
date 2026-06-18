@@ -172,12 +172,8 @@ export default async function CalculatorPage({
             sections={article.sections}
           />
         )}
-        {article && (
-  <ArticleSection
-    title={article.title}
-    sections={article.sections}
-  />
-)}
+    
+
 
 <RelatedCalculators
   currentSlug={slug}
