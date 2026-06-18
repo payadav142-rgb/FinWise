@@ -10,11 +10,34 @@ export default function IncomeTaxForm() {
   const [regime, setRegime] =
     useState<"new" | "old">("new");
 
-  const result =
-    calculateIncomeTax(
-      income,
-      regime
-    );
+  const selectedResult =
+    calculateIncomeTax(income, regime);
+
+  const newResult =
+    calculateIncomeTax(income, "new");
+
+  const oldResult =
+    calculateIncomeTax(income, "old");
+
+  const taxSaved = Math.abs(
+    newResult.totalTax -
+      oldResult.totalTax
+  );
+
+  const betterRegime =
+    newResult.totalTax <
+    oldResult.totalTax
+      ? "New Regime"
+      : "Old Regime";
+
+  const effectiveTaxRate =
+    income > 0
+      ? (
+          (selectedResult.totalTax /
+            income) *
+          100
+        ).toFixed(2)
+      : "0";
 
   return (
     <div className="space-y-6">
@@ -69,7 +92,7 @@ export default function IncomeTaxForm() {
 
           <p className="text-2xl font-bold">
             ₹
-            {result.taxableIncome.toLocaleString(
+            {selectedResult.taxableIncome.toLocaleString(
               "en-IN"
             )}
           </p>
@@ -82,7 +105,7 @@ export default function IncomeTaxForm() {
 
           <p className="text-2xl font-bold">
             ₹
-            {result.tax.toLocaleString(
+            {selectedResult.tax.toLocaleString(
               "en-IN"
             )}
           </p>
@@ -95,7 +118,7 @@ export default function IncomeTaxForm() {
 
           <p className="text-2xl font-bold">
             ₹
-            {result.cess.toLocaleString(
+            {selectedResult.cess.toLocaleString(
               "en-IN"
             )}
           </p>
@@ -108,10 +131,67 @@ export default function IncomeTaxForm() {
 
           <p className="text-3xl font-bold">
             ₹
-            {result.totalTax.toLocaleString(
+            {selectedResult.totalTax.toLocaleString(
               "en-IN"
             )}
           </p>
+        </div>
+      </div>
+
+      <div className="rounded-2xl border p-5">
+        <h3 className="mb-4 text-xl font-semibold">
+          Regime Comparison
+        </h3>
+
+        <div className="space-y-3">
+          <div className="flex justify-between">
+            <span>New Regime Tax</span>
+
+            <span className="font-semibold">
+              ₹
+              {newResult.totalTax.toLocaleString(
+                "en-IN"
+              )}
+            </span>
+          </div>
+
+          <div className="flex justify-between">
+            <span>Old Regime Tax</span>
+
+            <span className="font-semibold">
+              ₹
+              {oldResult.totalTax.toLocaleString(
+                "en-IN"
+              )}
+            </span>
+          </div>
+
+          <div className="flex justify-between">
+            <span>Better Option</span>
+
+            <span className="font-semibold">
+              {betterRegime}
+            </span>
+          </div>
+
+          <div className="flex justify-between">
+            <span>Tax Saved</span>
+
+            <span className="font-semibold">
+              ₹
+              {taxSaved.toLocaleString(
+                "en-IN"
+              )}
+            </span>
+          </div>
+
+          <div className="flex justify-between">
+            <span>Effective Tax Rate</span>
+
+            <span className="font-semibold">
+              {effectiveTaxRate}%
+            </span>
+          </div>
         </div>
       </div>
     </div>
