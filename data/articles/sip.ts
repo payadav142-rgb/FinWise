@@ -45,5 +45,45 @@ SIP is suitable for salaried employees, business owners, students, first-time in
 It is especially useful for investors who prefer regular investments instead of making large lump-sum investments.
       `,
     },
+
+    {
+      heading: "Example of SIP Investment",
+      content: `
+Suppose you invest ₹5,000 every month through SIP for 20 years and earn an average annual return of 12%.
+
+Your total investment would be ₹12 lakh, while the maturity value could exceed ₹49 lakh depending on market performance.
+
+This example demonstrates the long-term impact of compounding and disciplined investing.
+      `,
+    },
+
+    {
+      heading: "SIP vs Lump Sum Investment",
+      content: `
+SIP involves investing a fixed amount regularly, whereas a lump sum investment is made in a single transaction.
+
+SIP helps reduce market timing risk and is suitable for salaried investors. Lump sum investing may be suitable when a large amount is available and market valuations are attractive.
+
+Both approaches can be effective depending on financial goals and risk tolerance.
+      `,
+    },
+
+    {
+      heading: "Factors Affecting SIP Returns",
+      content: `
+Several factors influence SIP returns including investment duration, expected rate of return, market performance, fund selection and consistency of investments.
+
+Generally, longer investment periods provide greater benefits from compounding.
+      `,
+    },
+
+    {
+      heading: "Conclusion",
+      content: `
+A SIP Calculator is a useful financial planning tool for estimating future wealth creation through mutual fund investments.
+
+By adjusting investment amount, expected returns and tenure, investors can plan their financial goals more effectively and make informed investment decisions.
+      `,
+    },
   ],
 };
