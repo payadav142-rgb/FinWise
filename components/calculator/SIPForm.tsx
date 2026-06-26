@@ -17,7 +17,8 @@ export default function SIPForm() {
 
   return (
     <div className="space-y-8">
-      {/* Monthly Investment */}
+      {/* Inputs */}
+
       <div>
         <label className="mb-2 block text-sm font-medium">
           Monthly Investment (₹)
@@ -29,11 +30,10 @@ export default function SIPForm() {
           onChange={(e) =>
             setMonthlyInvestment(Number(e.target.value))
           }
-          className="w-full rounded-xl border px-4 py-3 focus:border-blue-500 focus:outline-none"
+          className="w-full rounded-xl border px-4 py-3 focus:border-blue-600 focus:outline-none"
         />
       </div>
 
-      {/* Annual Return */}
       <div>
         <label className="mb-2 block text-sm font-medium">
           Expected Annual Return (%)
@@ -46,11 +46,10 @@ export default function SIPForm() {
           onChange={(e) =>
             setAnnualReturn(Number(e.target.value))
           }
-          className="w-full rounded-xl border px-4 py-3 focus:border-blue-500 focus:outline-none"
+          className="w-full rounded-xl border px-4 py-3 focus:border-blue-600 focus:outline-none"
         />
       </div>
 
-      {/* Investment Period */}
       <div>
         <label className="mb-2 block text-sm font-medium">
           Investment Period (Years)
@@ -62,31 +61,34 @@ export default function SIPForm() {
           onChange={(e) =>
             setYears(Number(e.target.value))
           }
-          className="w-full rounded-xl border px-4 py-3 focus:border-blue-500 focus:outline-none"
+          className="w-full rounded-xl border px-4 py-3 focus:border-blue-600 focus:outline-none"
         />
       </div>
 
-      {/* Result Section */}
-      <div className="space-y-4 border-t pt-6">
-        <h3 className="text-xl font-semibold">
+      {/* Results */}
+
+      <div className="border-t pt-8">
+        <h3 className="mb-5 text-2xl font-bold">
           Investment Summary
         </h3>
 
-        <ResultCard
-          label="Invested Amount"
-          value={`₹${result.investedAmount.toLocaleString("en-IN")}`}
-        />
+        <div className="space-y-4">
+          <ResultCard
+            label="Invested Amount"
+            value={`₹${result.investedAmount.toLocaleString("en-IN")}`}
+          />
 
-        <ResultCard
-          label="Estimated Returns"
-          value={`₹${result.estimatedReturns.toLocaleString("en-IN")}`}
-        />
+          <ResultCard
+            label="Estimated Returns"
+            value={`₹${result.estimatedReturns.toLocaleString("en-IN")}`}
+          />
 
-        <ResultCard
-          label="Maturity Value"
-          value={`₹${result.maturityAmount.toLocaleString("en-IN")}`}
-          highlight={true}
-        />
+          <ResultCard
+            label="Maturity Value"
+            value={`₹${result.maturityAmount.toLocaleString("en-IN")}`}
+            highlight
+          />
+        </div>
       </div>
     </div>
   );
