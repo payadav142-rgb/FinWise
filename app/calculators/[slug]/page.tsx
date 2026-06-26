@@ -133,27 +133,7 @@ export default async function CalculatorPage({
           {calculator.description}
         </p>
 
-        <CalculatorLayout
-          title={
-            slug === "sip-calculator"
-              ? "Maturity Value"
-              : slug === "fd-calculator"
-              ? "Maturity Amount"
-              : slug === "rd-calculator"
-              ? "Maturity Amount"
-              : slug === "cagr-calculator"
-              ? "CAGR"
-              : slug === "lumpsum-calculator"
-              ? "Future Value"
-              : slug === "ppf-calculator"
-              ? "Maturity Amount"
-              : slug === "emi-calculator"
-              ? "Monthly EMI"
-              : slug === "income-tax-calculator"
-              ? "Estimated Tax"
-              : "Result"
-          }
-        >
+        <CalculatorLayout>
           {getCalculatorComponent(slug)}
         </CalculatorLayout>
 
