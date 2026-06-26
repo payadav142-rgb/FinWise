@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { calculateSIP } from "@/lib/sip";
+import ResultCard from "./ResultCard";
 
 export default function SIPForm() {
   const [monthlyInvestment, setMonthlyInvestment] = useState(5000);
@@ -15,7 +16,8 @@ export default function SIPForm() {
   );
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
+      {/* Monthly Investment */}
       <div>
         <label className="mb-2 block text-sm font-medium">
           Monthly Investment (₹)
@@ -27,25 +29,28 @@ export default function SIPForm() {
           onChange={(e) =>
             setMonthlyInvestment(Number(e.target.value))
           }
-          className="w-full rounded-xl border px-4 py-3"
+          className="w-full rounded-xl border px-4 py-3 focus:border-blue-500 focus:outline-none"
         />
       </div>
 
+      {/* Annual Return */}
       <div>
         <label className="mb-2 block text-sm font-medium">
-          Expected Return (%)
+          Expected Annual Return (%)
         </label>
 
         <input
           type="number"
+          step="0.1"
           value={annualReturn}
           onChange={(e) =>
             setAnnualReturn(Number(e.target.value))
           }
-          className="w-full rounded-xl border px-4 py-3"
+          className="w-full rounded-xl border px-4 py-3 focus:border-blue-500 focus:outline-none"
         />
       </div>
 
+      {/* Investment Period */}
       <div>
         <label className="mb-2 block text-sm font-medium">
           Investment Period (Years)
@@ -57,40 +62,31 @@ export default function SIPForm() {
           onChange={(e) =>
             setYears(Number(e.target.value))
           }
-          className="w-full rounded-xl border px-4 py-3"
+          className="w-full rounded-xl border px-4 py-3 focus:border-blue-500 focus:outline-none"
         />
       </div>
 
-      <div className="rounded-2xl bg-slate-50 p-5">
-        <div className="mb-3">
-          <p className="text-sm text-muted-foreground">
-            Invested Amount
-          </p>
+      {/* Result Section */}
+      <div className="space-y-4 border-t pt-6">
+        <h3 className="text-xl font-semibold">
+          Investment Summary
+        </h3>
 
-          <p className="text-2xl font-bold">
-            ₹{result.investedAmount.toLocaleString("en-IN")}
-          </p>
-        </div>
+        <ResultCard
+          label="Invested Amount"
+          value={`₹${result.investedAmount.toLocaleString("en-IN")}`}
+        />
 
-        <div className="mb-3">
-          <p className="text-sm text-muted-foreground">
-            Estimated Returns
-          </p>
+        <ResultCard
+          label="Estimated Returns"
+          value={`₹${result.estimatedReturns.toLocaleString("en-IN")}`}
+        />
 
-          <p className="text-2xl font-bold">
-            ₹{result.estimatedReturns.toLocaleString("en-IN")}
-          </p>
-        </div>
-
-        <div>
-          <p className="text-sm text-muted-foreground">
-            Maturity Value
-          </p>
-
-          <p className="text-3xl font-bold">
-            ₹{result.maturityAmount.toLocaleString("en-IN")}
-          </p>
-        </div>
+        <ResultCard
+          label="Maturity Value"
+          value={`₹${result.maturityAmount.toLocaleString("en-IN")}`}
+          highlight={true}
+        />
       </div>
     </div>
   );
