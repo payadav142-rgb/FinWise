@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { calculatePPF } from "@/lib/ppf";
+import ResultCard from "./ResultCard";
 
 export default function PPFForm() {
   const [yearlyInvestment, setYearlyInvestment] =
@@ -20,7 +21,8 @@ export default function PPFForm() {
   );
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
+
       <div>
         <label className="mb-2 block text-sm font-medium">
           Annual Investment (₹)
@@ -34,7 +36,7 @@ export default function PPFForm() {
               Number(e.target.value)
             )
           }
-          className="w-full rounded-xl border px-4 py-3"
+          className="w-full rounded-xl border px-4 py-3 focus:border-blue-600 focus:outline-none"
         />
       </div>
 
@@ -52,13 +54,13 @@ export default function PPFForm() {
               Number(e.target.value)
             )
           }
-          className="w-full rounded-xl border px-4 py-3"
+          className="w-full rounded-xl border px-4 py-3 focus:border-blue-600 focus:outline-none"
         />
       </div>
 
       <div>
         <label className="mb-2 block text-sm font-medium">
-          Tenure (Years)
+          Investment Period (Years)
         </label>
 
         <input
@@ -67,44 +69,38 @@ export default function PPFForm() {
           onChange={(e) =>
             setYears(Number(e.target.value))
           }
-          className="w-full rounded-xl border px-4 py-3"
+          className="w-full rounded-xl border px-4 py-3 focus:border-blue-600 focus:outline-none"
         />
       </div>
 
-      <div className="rounded-2xl bg-slate-50 p-5">
-        <p className="text-sm text-muted-foreground">
-          Total Investment
-        </p>
+      <div className="border-t pt-8">
 
-        <p className="text-2xl font-bold">
-          ₹
-          {result.totalInvestment.toLocaleString(
-            "en-IN"
-          )}
-        </p>
+        <h3 className="mb-5 text-2xl font-bold">
+          Investment Summary
+        </h3>
 
-        <p className="mt-4 text-sm text-muted-foreground">
-          Interest Earned
-        </p>
+        <div className="space-y-4">
 
-        <p className="text-2xl font-bold">
-          ₹
-          {result.interestEarned.toLocaleString(
-            "en-IN"
-          )}
-        </p>
+          <ResultCard
+            label="Total Investment"
+            value={`₹${result.totalInvestment.toLocaleString("en-IN")}`}
+          />
 
-        <p className="mt-4 text-sm text-muted-foreground">
-          Maturity Amount
-        </p>
+          <ResultCard
+            label="Interest Earned"
+            value={`₹${result.interestEarned.toLocaleString("en-IN")}`}
+          />
 
-        <p className="text-3xl font-bold">
-          ₹
-          {result.maturityAmount.toLocaleString(
-            "en-IN"
-          )}
-        </p>
+          <ResultCard
+            label="Maturity Amount"
+            value={`₹${result.maturityAmount.toLocaleString("en-IN")}`}
+            highlight
+          />
+
+        </div>
+
       </div>
+
     </div>
   );
 }
