@@ -21,19 +21,24 @@ export default function SliderInput({
   prefix = "",
   suffix = "",
 }: SliderInputProps) {
+  const percentage =
+    ((value - min) / (max - min)) * 100;
+
   return (
-    <div className="space-y-3">
+    <div className="space-y-4">
 
       <div className="flex items-center justify-between">
-        <label className="text-sm font-medium">
+
+        <label className="text-sm font-semibold text-slate-700">
           {label}
         </label>
 
-        <span className="font-semibold text-blue-600">
+        <span className="rounded-full bg-blue-100 px-3 py-1 text-sm font-semibold text-blue-700">
           {prefix}
           {value.toLocaleString("en-IN")}
           {suffix}
         </span>
+
       </div>
 
       <input
@@ -45,8 +50,29 @@ export default function SliderInput({
         onChange={(e) =>
           onChange(Number(e.target.value))
         }
-        className="w-full cursor-pointer"
+        style={{
+          background: `linear-gradient(to right,
+          #2563eb 0%,
+          #2563eb ${percentage}%,
+          #e5e7eb ${percentage}%,
+          #e5e7eb 100%)`,
+        }}
+        className="h-2 w-full cursor-pointer appearance-none rounded-lg"
       />
+
+      <div className="flex justify-between text-xs text-slate-500">
+        <span>
+          {prefix}
+          {min.toLocaleString("en-IN")}
+          {suffix}
+        </span>
+
+        <span>
+          {prefix}
+          {max.toLocaleString("en-IN")}
+          {suffix}
+        </span>
+      </div>
 
       <input
         type="number"
@@ -54,7 +80,7 @@ export default function SliderInput({
         onChange={(e) =>
           onChange(Number(e.target.value))
         }
-        className="w-full rounded-xl border px-4 py-3 focus:border-blue-600 focus:outline-none"
+        className="w-full rounded-xl border border-slate-300 px-4 py-3 transition focus:border-blue-600 focus:ring-2 focus:ring-blue-200 focus:outline-none"
       />
 
     </div>
