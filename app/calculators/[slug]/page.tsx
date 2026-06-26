@@ -120,18 +120,32 @@ export default async function CalculatorPage({
         }}
       />
 
-      <main className="mx-auto max-w-5xl px-6 py-16">
-        <div className="mb-4 inline-block rounded-full border px-3 py-1 text-sm">
+      <main className="mx-auto max-w-7xl px-6 py-16">
+
+        <div className="mb-4 inline-block rounded-full border border-blue-200 bg-blue-50 px-4 py-1 text-sm font-medium text-blue-700">
           {calculator.category}
         </div>
 
-        <h1 className="text-5xl font-bold">
+        <h1 className="text-5xl font-extrabold tracking-tight">
           {calculator.title}
         </h1>
 
-        <p className="mt-4 text-lg text-muted-foreground">
+        <p className="mt-5 max-w-3xl text-lg leading-8 text-muted-foreground">
           {calculator.description}
         </p>
+
+        <div className="mt-10 rounded-2xl border border-blue-100 bg-blue-50 p-6">
+          <h2 className="text-2xl font-semibold">
+            Free Online {calculator.title}
+          </h2>
+
+          <p className="mt-2 text-muted-foreground">
+            Calculate accurate results instantly using our
+            free calculator. Simply enter your details
+            below and get instant results with complete
+            accuracy.
+          </p>
+        </div>
 
         <CalculatorLayout>
           {getCalculatorComponent(slug)}
@@ -152,12 +166,10 @@ export default async function CalculatorPage({
             sections={article.sections}
           />
         )}
-    
 
-
-<RelatedCalculators
-  currentSlug={slug}
-/>
+        <RelatedCalculators
+          currentSlug={slug}
+        />
       </main>
     </>
   );
