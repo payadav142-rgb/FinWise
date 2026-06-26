@@ -2,20 +2,27 @@
 
 import { useState } from "react";
 import { calculateCAGR } from "@/lib/cagr";
+import ResultCard from "./ResultCard";
 
 export default function CAGRForm() {
-  const [beginningValue, setBeginningValue] = useState(100000);
-  const [endingValue, setEndingValue] = useState(200000);
-  const [years, setYears] = useState(5);
+  const [initialValue, setInitialValue] =
+    useState(100000);
+
+  const [finalValue, setFinalValue] =
+    useState(180000);
+
+  const [years, setYears] =
+    useState(5);
 
   const result = calculateCAGR(
-    beginningValue,
-    endingValue,
+    initialValue,
+    finalValue,
     years
   );
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
+
       <div>
         <label className="mb-2 block text-sm font-medium">
           Initial Investment (₹)
@@ -23,11 +30,11 @@ export default function CAGRForm() {
 
         <input
           type="number"
-          value={beginningValue}
+          value={initialValue}
           onChange={(e) =>
-            setBeginningValue(Number(e.target.value))
+            setInitialValue(Number(e.target.value))
           }
-          className="w-full rounded-xl border px-4 py-3"
+          className="w-full rounded-xl border px-4 py-3 focus:border-blue-600 focus:outline-none"
         />
       </div>
 
@@ -38,11 +45,11 @@ export default function CAGRForm() {
 
         <input
           type="number"
-          value={endingValue}
+          value={finalValue}
           onChange={(e) =>
-            setEndingValue(Number(e.target.value))
+            setFinalValue(Number(e.target.value))
           }
-          className="w-full rounded-xl border px-4 py-3"
+          className="w-full rounded-xl border px-4 py-3 focus:border-blue-600 focus:outline-none"
         />
       </div>
 
@@ -57,19 +64,38 @@ export default function CAGRForm() {
           onChange={(e) =>
             setYears(Number(e.target.value))
           }
-          className="w-full rounded-xl border px-4 py-3"
+          className="w-full rounded-xl border px-4 py-3 focus:border-blue-600 focus:outline-none"
         />
       </div>
 
-      <div className="rounded-2xl bg-slate-50 p-5">
-        <p className="text-sm text-muted-foreground">
-          CAGR
-        </p>
+      <div className="border-t pt-8">
 
-        <p className="text-4xl font-bold">
-          {result.cagr}%
-        </p>
+        <h3 className="mb-5 text-2xl font-bold">
+          Growth Summary
+        </h3>
+
+        <div className="space-y-4">
+
+          <ResultCard
+            label="Initial Investment"
+            value={`₹${initialValue.toLocaleString("en-IN")}`}
+          />
+
+          <ResultCard
+            label="Final Value"
+            value={`₹${finalValue.toLocaleString("en-IN")}`}
+          />
+
+          <ResultCard
+            label="CAGR"
+            value={`${result.cagr}%`}
+            highlight
+          />
+
+        </div>
+
       </div>
+
     </div>
   );
 }
