@@ -1,8 +1,13 @@
 "use client";
 
 import { useState } from "react";
+
 import { calculateCAGR } from "@/lib/cagr";
+
+import SliderInput from "./SliderInput";
 import ResultCard from "./ResultCard";
+
+import GrowthChart from "@/components/charts/GrowthChart";
 
 export default function CAGRForm() {
   const [initialValue, setInitialValue] =
@@ -23,50 +28,34 @@ export default function CAGRForm() {
   return (
     <div className="space-y-8">
 
-      <div>
-        <label className="mb-2 block text-sm font-medium">
-          Initial Investment (₹)
-        </label>
+      <SliderInput
+        label="Initial Investment"
+        value={initialValue}
+        min={1000}
+        max={10000000}
+        step={1000}
+        prefix="₹"
+        onChange={setInitialValue}
+      />
 
-        <input
-          type="number"
-          value={initialValue}
-          onChange={(e) =>
-            setInitialValue(Number(e.target.value))
-          }
-          className="w-full rounded-xl border px-4 py-3 focus:border-blue-600 focus:outline-none"
-        />
-      </div>
+      <SliderInput
+        label="Final Value"
+        value={finalValue}
+        min={1000}
+        max={50000000}
+        step={1000}
+        prefix="₹"
+        onChange={setFinalValue}
+      />
 
-      <div>
-        <label className="mb-2 block text-sm font-medium">
-          Final Value (₹)
-        </label>
-
-        <input
-          type="number"
-          value={finalValue}
-          onChange={(e) =>
-            setFinalValue(Number(e.target.value))
-          }
-          className="w-full rounded-xl border px-4 py-3 focus:border-blue-600 focus:outline-none"
-        />
-      </div>
-
-      <div>
-        <label className="mb-2 block text-sm font-medium">
-          Investment Period (Years)
-        </label>
-
-        <input
-          type="number"
-          value={years}
-          onChange={(e) =>
-            setYears(Number(e.target.value))
-          }
-          className="w-full rounded-xl border px-4 py-3 focus:border-blue-600 focus:outline-none"
-        />
-      </div>
+      <SliderInput
+        label="Investment Period"
+        value={years}
+        min={1}
+        max={40}
+        suffix=" Years"
+        onChange={setYears}
+      />
 
       <div className="border-t pt-8">
 
@@ -78,12 +67,16 @@ export default function CAGRForm() {
 
           <ResultCard
             label="Initial Investment"
-            value={`₹${initialValue.toLocaleString("en-IN")}`}
+            value={`₹${initialValue.toLocaleString(
+              "en-IN"
+            )}`}
           />
 
           <ResultCard
             label="Final Value"
-            value={`₹${finalValue.toLocaleString("en-IN")}`}
+            value={`₹${finalValue.toLocaleString(
+              "en-IN"
+            )}`}
           />
 
           <ResultCard
@@ -95,6 +88,11 @@ export default function CAGRForm() {
         </div>
 
       </div>
+
+      <GrowthChart
+        title="Investment Growth"
+        data={result.yearlyData}
+      />
 
     </div>
   );
