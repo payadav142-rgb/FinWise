@@ -1,11 +1,19 @@
 "use client";
 
 import { useState } from "react";
+
 import { calculateFD } from "@/lib/fd";
+
 import ResultCard from "./ResultCard";
+import SliderInput from "./SliderInput";
+
+import InvestmentPieChart from "@/components/charts/InvestmentPieChart";
+import GrowthChart from "@/components/charts/GrowthChart";
+import BreakdownTable from "@/components/charts/BreakdownTable";
 
 export default function FDForm() {
-  const [principal, setPrincipal] = useState(100000);
+  const [principal, setPrincipal] =
+    useState(100000);
 
   const [interestRate, setInterestRate] =
     useState(7);
@@ -22,51 +30,38 @@ export default function FDForm() {
   return (
     <div className="space-y-8">
 
-      <div>
-        <label className="mb-2 block text-sm font-medium">
-          Deposit Amount (₹)
-        </label>
+      {/* Inputs */}
 
-        <input
-          type="number"
-          value={principal}
-          onChange={(e) =>
-            setPrincipal(Number(e.target.value))
-          }
-          className="w-full rounded-xl border px-4 py-3 focus:border-blue-600 focus:outline-none"
-        />
-      </div>
+      <SliderInput
+        label="Deposit Amount"
+        value={principal}
+        min={1000}
+        max={10000000}
+        step={1000}
+        prefix="₹"
+        onChange={setPrincipal}
+      />
 
-      <div>
-        <label className="mb-2 block text-sm font-medium">
-          Interest Rate (%)
-        </label>
+      <SliderInput
+        label="Interest Rate"
+        value={interestRate}
+        min={1}
+        max={15}
+        step={0.1}
+        suffix="%"
+        onChange={setInterestRate}
+      />
 
-        <input
-          type="number"
-          step="0.1"
-          value={interestRate}
-          onChange={(e) =>
-            setInterestRate(Number(e.target.value))
-          }
-          className="w-full rounded-xl border px-4 py-3 focus:border-blue-600 focus:outline-none"
-        />
-      </div>
+      <SliderInput
+        label="Investment Period"
+        value={years}
+        min={1}
+        max={30}
+        suffix=" Years"
+        onChange={setYears}
+      />
 
-      <div>
-        <label className="mb-2 block text-sm font-medium">
-          Investment Period (Years)
-        </label>
-
-        <input
-          type="number"
-          value={years}
-          onChange={(e) =>
-            setYears(Number(e.target.value))
-          }
-          className="w-full rounded-xl border px-4 py-3 focus:border-blue-600 focus:outline-none"
-        />
-      </div>
+      {/* Results */}
 
       <div className="border-t pt-8">
 
@@ -78,23 +73,64 @@ export default function FDForm() {
 
           <ResultCard
             label="Principal Amount"
-            value={`₹${result.principal.toLocaleString("en-IN")}`}
+            value={`₹${result.principal.toLocaleString(
+              "en-IN"
+            )}`}
           />
 
           <ResultCard
             label="Interest Earned"
-            value={`₹${result.interestEarned.toLocaleString("en-IN")}`}
+            value={`₹${result.interestEarned.toLocaleString(
+              "en-IN"
+            )}`}
           />
 
           <ResultCard
             label="Maturity Amount"
-            value={`₹${result.maturityAmount.toLocaleString("en-IN")}`}
+            value={`₹${result.maturityAmount.toLocaleString(
+              "en-IN"
+            )}`}
             highlight
           />
 
         </div>
 
       </div>
+
+      {/* Pie Chart */}
+
+      <InvestmentPieChart
+        invested={result.principal}
+        returns={result.interestEarned}
+      />
+
+      {/* Growth Chart */}
+
+      <GrowthChart
+        title="FD Growth"
+        data={result.yearlyData}
+      />
+
+      {/* Breakdown */}
+
+      <BreakdownTable
+        title="Year-wise FD Breakdown"
+        columns={[
+          {
+            key: "principal",
+            label: "Principal",
+          },
+          {
+            key: "interest",
+            label: "Interest",
+          },
+          {
+            key: "total",
+            label: "Maturity",
+          },
+        ]}
+        data={result.yearlyData}
+      />
 
     </div>
   );
