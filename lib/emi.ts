@@ -3,8 +3,20 @@ export function calculateEMI(
   annualRate: number,
   years: number
 ) {
-  const monthlyRate = annualRate / 12 / 100;
+  // Input Validation
+  if (
+    loanAmount <= 0 ||
+    annualRate <= 0 ||
+    years <= 0
+  ) {
+    return {
+      emi: 0,
+      totalPayment: 0,
+      totalInterest: 0,
+    };
+  }
 
+  const monthlyRate = annualRate / 12 / 100;
   const months = years * 12;
 
   const emi =
@@ -14,7 +26,6 @@ export function calculateEMI(
     (Math.pow(1 + monthlyRate, months) - 1);
 
   const totalPayment = emi * months;
-
   const totalInterest =
     totalPayment - loanAmount;
 
