@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { calculateEMI } from "@/lib/emi";
 import ResultCard from "./ResultCard";
+import SliderInput from "./SliderInput";
+import InvestmentPieChart from "@/components/charts/InvestmentPieChart";
 
 export default function EMIForm() {
   const [loanAmount, setLoanAmount] =
@@ -23,51 +25,34 @@ export default function EMIForm() {
   return (
     <div className="space-y-8">
 
-      <div>
-        <label className="mb-2 block text-sm font-medium">
-          Loan Amount (₹)
-        </label>
+      <SliderInput
+        label="Loan Amount"
+        value={loanAmount}
+        min={50000}
+        max={10000000}
+        step={10000}
+        prefix="₹"
+        onChange={setLoanAmount}
+      />
 
-        <input
-          type="number"
-          value={loanAmount}
-          onChange={(e) =>
-            setLoanAmount(Number(e.target.value))
-          }
-          className="w-full rounded-xl border px-4 py-3 focus:border-blue-600 focus:outline-none"
-        />
-      </div>
+      <SliderInput
+        label="Interest Rate"
+        value={interestRate}
+        min={1}
+        max={20}
+        step={0.1}
+        suffix="%"
+        onChange={setInterestRate}
+      />
 
-      <div>
-        <label className="mb-2 block text-sm font-medium">
-          Interest Rate (%)
-        </label>
-
-        <input
-          type="number"
-          step="0.1"
-          value={interestRate}
-          onChange={(e) =>
-            setInterestRate(Number(e.target.value))
-          }
-          className="w-full rounded-xl border px-4 py-3 focus:border-blue-600 focus:outline-none"
-        />
-      </div>
-
-      <div>
-        <label className="mb-2 block text-sm font-medium">
-          Loan Tenure (Years)
-        </label>
-
-        <input
-          type="number"
-          value={years}
-          onChange={(e) =>
-            setYears(Number(e.target.value))
-          }
-          className="w-full rounded-xl border px-4 py-3 focus:border-blue-600 focus:outline-none"
-        />
-      </div>
+      <SliderInput
+        label="Loan Tenure"
+        value={years}
+        min={1}
+        max={30}
+        suffix=" Years"
+        onChange={setYears}
+      />
 
       <div className="border-t pt-8">
 
@@ -96,6 +81,11 @@ export default function EMIForm() {
         </div>
 
       </div>
+
+      <InvestmentPieChart
+        invested={loanAmount}
+        returns={result.totalInterest}
+      />
 
     </div>
   );
