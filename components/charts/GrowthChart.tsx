@@ -10,24 +10,24 @@ import {
   CartesianGrid,
 } from "recharts";
 
-type YearData = {
+type ChartData = {
   year: number;
-  invested: number;
-  returns: number;
   total: number;
 };
 
 type Props = {
-  data: YearData[];
+  data: ChartData[];
+  title?: string;
 };
 
 export default function GrowthChart({
   data,
+  title = "Investment Growth",
 }: Props) {
   return (
     <div className="mt-8 rounded-2xl border p-6">
       <h3 className="mb-6 text-2xl font-bold">
-        Investment Growth
+        {title}
       </h3>
 
       <div className="h-[350px]">
@@ -36,9 +36,7 @@ export default function GrowthChart({
           height="100%"
         >
           <LineChart data={data}>
-            <CartesianGrid
-              strokeDasharray="3 3"
-            />
+            <CartesianGrid strokeDasharray="3 3" />
 
             <XAxis
               dataKey="year"
@@ -51,9 +49,9 @@ export default function GrowthChart({
 
             <YAxis
               tickFormatter={(value) =>
-                `₹${(Number(value) / 1000).toFixed(
-                  0
-                )}K`
+                `₹${(
+                  Number(value) / 1000
+                ).toFixed(0)}K`
               }
             />
 
