@@ -5,7 +5,8 @@ import { calculateEMI } from "@/lib/emi";
 import ResultCard from "./ResultCard";
 import SliderInput from "./SliderInput";
 import InvestmentPieChart from "@/components/charts/InvestmentPieChart";
-
+import GrowthChart from "@/components/charts/GrowthChart";
+import BreakdownTable from "@/components/charts/BreakdownTable";
 export default function EMIForm() {
   const [loanAmount, setLoanAmount] =
     useState(1000000);
@@ -86,6 +87,33 @@ export default function EMIForm() {
         invested={loanAmount}
         returns={result.totalInterest}
       />
+      <GrowthChart
+  title="Loan Repayment Progress"
+  data={result.yearlyData}
+/>
+
+<BreakdownTable
+  title="Year-wise EMI Breakdown"
+  columns={[
+    {
+      key: "invested",
+      label: "Principal Paid",
+    },
+    {
+      key: "returns",
+      label: "Interest Paid",
+    },
+    {
+      key: "total",
+      label: "Loan Repaid",
+    },
+  ]}
+  data={result.yearlyData}
+/>
+
+
+
+
 
     </div>
   );
