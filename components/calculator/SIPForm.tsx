@@ -1,7 +1,7 @@
 "use client";
 
 
-
+import GrowthChart from "@/components/charts/GrowthChart";
 import BreakdownTable from "@/components/charts/BreakdownTable";
 import InvestmentPieChart from "@/components/charts/InvestmentPieChart";
 import { useState } from "react";
@@ -94,11 +94,12 @@ export default function SIPForm() {
   invested={result.investedAmount}
   returns={result.estimatedReturns}
 />
-
 <BreakdownTable
   data={result.yearlyData}
 />
-
+<GrowthChart
+  data={result.yearlyData}
+/>
         </div>
 
       </div>
