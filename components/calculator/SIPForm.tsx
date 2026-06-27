@@ -1,5 +1,5 @@
 "use client";
-
+import InvestmentPieChart from "@/components/charts/InvestmentPieChart";
 import { useState } from "react";
 import { calculateSIP } from "@/lib/sip";
 import ResultCard from "./ResultCard";
@@ -86,6 +86,10 @@ export default function SIPForm() {
             )}`}
             highlight
           />
+          <InvestmentPieChart
+  invested={result.investedAmount}
+  returns={result.estimatedReturns}
+/>
 
         </div>
 
