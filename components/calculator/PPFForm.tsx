@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { calculatePPF } from "@/lib/ppf";
 import ResultCard from "./ResultCard";
+import SliderInput from "./SliderInput";
+import InvestmentPieChart from "@/components/charts/InvestmentPieChart";
 
 export default function PPFForm() {
   const [yearlyInvestment, setYearlyInvestment] =
@@ -23,55 +25,34 @@ export default function PPFForm() {
   return (
     <div className="space-y-8">
 
-      <div>
-        <label className="mb-2 block text-sm font-medium">
-          Annual Investment (₹)
-        </label>
+      <SliderInput
+        label="Annual Investment"
+        value={yearlyInvestment}
+        min={500}
+        max={150000}
+        step={500}
+        prefix="₹"
+        onChange={setYearlyInvestment}
+      />
 
-        <input
-          type="number"
-          value={yearlyInvestment}
-          onChange={(e) =>
-            setYearlyInvestment(
-              Number(e.target.value)
-            )
-          }
-          className="w-full rounded-xl border px-4 py-3 focus:border-blue-600 focus:outline-none"
-        />
-      </div>
+      <SliderInput
+        label="Interest Rate"
+        value={interestRate}
+        min={1}
+        max={15}
+        step={0.1}
+        suffix="%"
+        onChange={setInterestRate}
+      />
 
-      <div>
-        <label className="mb-2 block text-sm font-medium">
-          Interest Rate (%)
-        </label>
-
-        <input
-          type="number"
-          step="0.1"
-          value={interestRate}
-          onChange={(e) =>
-            setInterestRate(
-              Number(e.target.value)
-            )
-          }
-          className="w-full rounded-xl border px-4 py-3 focus:border-blue-600 focus:outline-none"
-        />
-      </div>
-
-      <div>
-        <label className="mb-2 block text-sm font-medium">
-          Investment Period (Years)
-        </label>
-
-        <input
-          type="number"
-          value={years}
-          onChange={(e) =>
-            setYears(Number(e.target.value))
-          }
-          className="w-full rounded-xl border px-4 py-3 focus:border-blue-600 focus:outline-none"
-        />
-      </div>
+      <SliderInput
+        label="Investment Period"
+        value={years}
+        min={1}
+        max={30}
+        suffix=" Years"
+        onChange={setYears}
+      />
 
       <div className="border-t pt-8">
 
@@ -83,21 +64,32 @@ export default function PPFForm() {
 
           <ResultCard
             label="Total Investment"
-            value={`₹${result.totalInvestment.toLocaleString("en-IN")}`}
+            value={`₹${result.totalInvestment.toLocaleString(
+              "en-IN"
+            )}`}
           />
 
           <ResultCard
             label="Interest Earned"
-            value={`₹${result.interestEarned.toLocaleString("en-IN")}`}
+            value={`₹${result.interestEarned.toLocaleString(
+              "en-IN"
+            )}`}
           />
 
           <ResultCard
             label="Maturity Amount"
-            value={`₹${result.maturityAmount.toLocaleString("en-IN")}`}
+            value={`₹${result.maturityAmount.toLocaleString(
+              "en-IN"
+            )}`}
             highlight
           />
 
         </div>
+
+        <InvestmentPieChart
+          invested={result.totalInvestment}
+          returns={result.interestEarned}
+        />
 
       </div>
 
