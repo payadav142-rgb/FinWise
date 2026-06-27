@@ -63,12 +63,11 @@ export default function InvestmentPieChart({
             </Pie>
 
             <Tooltip
-              formatter={(value: number) =>
-                `₹${value.toLocaleString(
-                  "en-IN"
-                )}`
-              }
-            />
+  formatter={(value) => [
+    `₹${Number(value ?? 0).toLocaleString("en-IN")}`,
+    "",
+  ]}
+/>
 
             <Legend />
           </PieChart>
