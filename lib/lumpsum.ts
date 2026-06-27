@@ -3,7 +3,6 @@ export function calculateLumpsum(
   annualReturn: number,
   years: number
 ) {
-  // Input Validation
   if (
     investment <= 0 ||
     annualReturn <= 0 ||
@@ -12,6 +11,7 @@ export function calculateLumpsum(
     return {
       futureValue: 0,
       estimatedReturns: 0,
+      yearlyData: [],
     };
   }
 
@@ -25,10 +25,31 @@ export function calculateLumpsum(
   const estimatedReturns =
     futureValue - investment;
 
+  const yearlyData = [];
+
+  for (let year = 1; year <= years; year++) {
+    const total =
+      investment *
+      Math.pow(
+        1 + annualReturn / 100,
+        year
+      );
+
+    yearlyData.push({
+      year,
+      invested: investment,
+      returns: Math.round(
+        total - investment
+      ),
+      total: Math.round(total),
+    });
+  }
+
   return {
     futureValue: Math.round(futureValue),
     estimatedReturns: Math.round(
       estimatedReturns
     ),
+    yearlyData,
   };
 }

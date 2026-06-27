@@ -1,14 +1,15 @@
 "use client";
 
 import { useState } from "react";
+
 import { calculateSIP } from "@/lib/sip";
 
-import ResultCard from "./ResultCard";
 import SliderInput from "./SliderInput";
+import ResultCard from "./ResultCard";
 
 import InvestmentPieChart from "@/components/charts/InvestmentPieChart";
-import GrowthChart from "@/components/charts/GrowthChart";
 import BreakdownTable from "@/components/charts/BreakdownTable";
+import GrowthChart from "@/components/charts/GrowthChart";
 
 export default function SIPForm() {
   const [monthlyInvestment, setMonthlyInvestment] =
@@ -28,8 +29,6 @@ export default function SIPForm() {
 
   return (
     <div className="space-y-8">
-
-      {/* Inputs */}
 
       <SliderInput
         label="Monthly Investment"
@@ -60,8 +59,6 @@ export default function SIPForm() {
         onChange={setYears}
       />
 
-      {/* Results */}
-
       <div className="border-t pt-8">
 
         <h3 className="mb-5 text-2xl font-bold">
@@ -72,23 +69,17 @@ export default function SIPForm() {
 
           <ResultCard
             label="Invested Amount"
-            value={`₹${result.investedAmount.toLocaleString(
-              "en-IN"
-            )}`}
+            value={`₹${result.investedAmount.toLocaleString("en-IN")}`}
           />
 
           <ResultCard
             label="Estimated Returns"
-            value={`₹${result.estimatedReturns.toLocaleString(
-              "en-IN"
-            )}`}
+            value={`₹${result.estimatedReturns.toLocaleString("en-IN")}`}
           />
 
           <ResultCard
             label="Maturity Value"
-            value={`₹${result.maturityAmount.toLocaleString(
-              "en-IN"
-            )}`}
+            value={`₹${result.maturityAmount.toLocaleString("en-IN")}`}
             highlight
           />
 
@@ -96,24 +87,17 @@ export default function SIPForm() {
 
       </div>
 
-      {/* Pie Chart */}
-
       <InvestmentPieChart
         invested={result.investedAmount}
         returns={result.estimatedReturns}
       />
 
-      {/* Growth Chart */}
-
       <GrowthChart
         data={result.yearlyData}
-        title="Investment Growth"
       />
 
-      {/* Breakdown */}
-
       <BreakdownTable
-        title="Year-wise Breakdown"
+        data={result.yearlyData}
         columns={[
           {
             key: "invested",
@@ -125,10 +109,9 @@ export default function SIPForm() {
           },
           {
             key: "total",
-            label: "Total Value",
+            label: "Maturity Value",
           },
         ]}
-        data={result.yearlyData}
       />
 
     </div>

@@ -2,7 +2,13 @@
 
 import { useState } from "react";
 import { calculateLumpsum } from "@/lib/lumpsum";
+
 import ResultCard from "./ResultCard";
+import SliderInput from "./SliderInput";
+
+import InvestmentPieChart from "@/components/charts/InvestmentPieChart";
+import BreakdownTable from "@/components/charts/BreakdownTable";
+import GrowthChart from "@/components/charts/GrowthChart";
 
 export default function LumpsumForm() {
   const [investment, setInvestment] =
@@ -23,51 +29,34 @@ export default function LumpsumForm() {
   return (
     <div className="space-y-8">
 
-      <div>
-        <label className="mb-2 block text-sm font-medium">
-          One-Time Investment (₹)
-        </label>
+      <SliderInput
+        label="One-Time Investment"
+        value={investment}
+        min={1000}
+        max={10000000}
+        step={1000}
+        prefix="₹"
+        onChange={setInvestment}
+      />
 
-        <input
-          type="number"
-          value={investment}
-          onChange={(e) =>
-            setInvestment(Number(e.target.value))
-          }
-          className="w-full rounded-xl border px-4 py-3 focus:border-blue-600 focus:outline-none"
-        />
-      </div>
+      <SliderInput
+        label="Expected Annual Return"
+        value={annualReturn}
+        min={1}
+        max={30}
+        step={0.5}
+        suffix="%"
+        onChange={setAnnualReturn}
+      />
 
-      <div>
-        <label className="mb-2 block text-sm font-medium">
-          Expected Annual Return (%)
-        </label>
-
-        <input
-          type="number"
-          step="0.1"
-          value={annualReturn}
-          onChange={(e) =>
-            setAnnualReturn(Number(e.target.value))
-          }
-          className="w-full rounded-xl border px-4 py-3 focus:border-blue-600 focus:outline-none"
-        />
-      </div>
-
-      <div>
-        <label className="mb-2 block text-sm font-medium">
-          Investment Period (Years)
-        </label>
-
-        <input
-          type="number"
-          value={years}
-          onChange={(e) =>
-            setYears(Number(e.target.value))
-          }
-          className="w-full rounded-xl border px-4 py-3 focus:border-blue-600 focus:outline-none"
-        />
-      </div>
+      <SliderInput
+        label="Investment Period"
+        value={years}
+        min={1}
+        max={40}
+        suffix=" Years"
+        onChange={setYears}
+      />
 
       <div className="border-t pt-8">
 
@@ -96,6 +85,33 @@ export default function LumpsumForm() {
         </div>
 
       </div>
+
+      <InvestmentPieChart
+        invested={investment}
+        returns={result.estimatedReturns}
+      />
+
+      <GrowthChart
+        data={result.yearlyData}
+      />
+
+      <BreakdownTable
+        data={result.yearlyData}
+        columns={[
+          {
+            key: "invested",
+            label: "Invested",
+          },
+          {
+            key: "returns",
+            label: "Returns",
+          },
+          {
+            key: "total",
+            label: "Future Value",
+          },
+        ]}
+      />
 
     </div>
   );
