@@ -18,9 +18,52 @@ export function calculateSIP(
   const estimatedReturns =
     maturityAmount - investedAmount;
 
+  // Year-wise Breakdown
+  const yearlyData = [];
+
+  for (let year = 1; year <= years; year++) {
+    const totalMonths = year * 12;
+
+    const totalValue =
+      monthlyInvestment *
+      (((Math.pow(
+        1 + monthlyRate,
+        totalMonths
+      ) - 1) /
+        monthlyRate) *
+        (1 + monthlyRate));
+
+    const totalInvestment =
+      monthlyInvestment * totalMonths;
+
+    yearlyData.push({
+      year,
+
+      invested: Math.round(
+        totalInvestment
+      ),
+
+      returns: Math.round(
+        totalValue - totalInvestment
+      ),
+
+      total: Math.round(totalValue),
+    });
+  }
+
   return {
-    investedAmount: Math.round(investedAmount),
-    estimatedReturns: Math.round(estimatedReturns),
-    maturityAmount: Math.round(maturityAmount),
+    investedAmount: Math.round(
+      investedAmount
+    ),
+
+    estimatedReturns: Math.round(
+      estimatedReturns
+    ),
+
+    maturityAmount: Math.round(
+      maturityAmount
+    ),
+
+    yearlyData,
   };
 }
