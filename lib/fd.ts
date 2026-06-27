@@ -3,9 +3,14 @@ export function calculateFD(
   annualRate: number,
   years: number
 ) {
+  const n = 4; // Quarterly Compounding
+
   const maturityAmount =
     principal *
-    Math.pow(1 + annualRate / 100, years);
+    Math.pow(
+      1 + annualRate / (100 * n),
+      n * years
+    );
 
   const interestEarned =
     maturityAmount - principal;
