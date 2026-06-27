@@ -1,23 +1,29 @@
 "use client";
 
-type YearData = {
+type BreakdownRow = {
   year: number;
-  invested: number;
-  returns: number;
   total: number;
+  [key: string]: number;
 };
 
 type Props = {
-  data: YearData[];
+  title?: string;
+  columns: {
+    key: string;
+    label: string;
+  }[];
+  data: BreakdownRow[];
 };
 
 export default function BreakdownTable({
+  title = "Year-wise Breakdown",
+  columns,
   data,
 }: Props) {
   return (
     <div className="mt-8 rounded-2xl border p-6">
       <h3 className="mb-5 text-2xl font-bold">
-        Year-wise Breakdown
+        {title}
       </h3>
 
       <div className="overflow-x-auto">
@@ -30,17 +36,14 @@ export default function BreakdownTable({
                 Year
               </th>
 
-              <th className="px-4 py-3 text-right">
-                Invested
-              </th>
-
-              <th className="px-4 py-3 text-right">
-                Returns
-              </th>
-
-              <th className="px-4 py-3 text-right">
-                Total Value
-              </th>
+              {columns.map((column) => (
+                <th
+                  key={column.key}
+                  className="px-4 py-3 text-right"
+                >
+                  {column.label}
+                </th>
+              ))}
 
             </tr>
           </thead>
@@ -48,7 +51,6 @@ export default function BreakdownTable({
           <tbody>
 
             {data.map((row) => (
-
               <tr
                 key={row.year}
                 className="border-b hover:bg-slate-50"
@@ -58,20 +60,25 @@ export default function BreakdownTable({
                   {row.year}
                 </td>
 
-                <td className="px-4 py-3 text-right">
-                  ₹{row.invested.toLocaleString("en-IN")}
-                </td>
+                {columns.map((column) => (
 
-                <td className="px-4 py-3 text-right text-green-600 font-medium">
-                  ₹{row.returns.toLocaleString("en-IN")}
-                </td>
+                  <td
+                    key={column.key}
+                    className={`px-4 py-3 text-right ${
+                      column.key === "total"
+                        ? "font-semibold"
+                        : ""
+                    }`}
+                  >
+                    ₹
+                    {Number(
+                      row[column.key]
+                    ).toLocaleString("en-IN")}
+                  </td>
 
-                <td className="px-4 py-3 text-right font-semibold">
-                  ₹{row.total.toLocaleString("en-IN")}
-                </td>
+                ))}
 
               </tr>
-
             ))}
 
           </tbody>

@@ -1,13 +1,14 @@
 "use client";
 
-
-import GrowthChart from "@/components/charts/GrowthChart";
-import BreakdownTable from "@/components/charts/BreakdownTable";
-import InvestmentPieChart from "@/components/charts/InvestmentPieChart";
 import { useState } from "react";
 import { calculateSIP } from "@/lib/sip";
+
 import ResultCard from "./ResultCard";
 import SliderInput from "./SliderInput";
+
+import InvestmentPieChart from "@/components/charts/InvestmentPieChart";
+import GrowthChart from "@/components/charts/GrowthChart";
+import BreakdownTable from "@/components/charts/BreakdownTable";
 
 export default function SIPForm() {
   const [monthlyInvestment, setMonthlyInvestment] =
@@ -90,19 +91,45 @@ export default function SIPForm() {
             )}`}
             highlight
           />
-          <InvestmentPieChart
-  invested={result.investedAmount}
-  returns={result.estimatedReturns}
-/>
-<BreakdownTable
-  data={result.yearlyData}
-/>
-<GrowthChart
-  data={result.yearlyData}
-/>
+
         </div>
 
       </div>
+
+      {/* Pie Chart */}
+
+      <InvestmentPieChart
+        invested={result.investedAmount}
+        returns={result.estimatedReturns}
+      />
+
+      {/* Growth Chart */}
+
+      <GrowthChart
+        data={result.yearlyData}
+        title="Investment Growth"
+      />
+
+      {/* Breakdown */}
+
+      <BreakdownTable
+        title="Year-wise Breakdown"
+        columns={[
+          {
+            key: "invested",
+            label: "Invested",
+          },
+          {
+            key: "returns",
+            label: "Returns",
+          },
+          {
+            key: "total",
+            label: "Total Value",
+          },
+        ]}
+        data={result.yearlyData}
+      />
 
     </div>
   );
