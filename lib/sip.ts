@@ -1,83 +1,63 @@
-"use client";
+export function calculateSIP(
+  monthlyInvestment: number,
+  annualReturn: number,
+  years: number
+) {
+  const monthlyRate = annualReturn / 12 / 100;
+  const months = years * 12;
 
-type YearData = {
-  year: number;
-  invested: number;
-  returns: number;
-  total: number;
-};
+  const maturityAmount =
+    monthlyInvestment *
+    (((Math.pow(1 + monthlyRate, months) - 1) /
+      monthlyRate) *
+      (1 + monthlyRate));
 
-type Props = {
-  data: YearData[];
-};
+  const investedAmount =
+    monthlyInvestment * months;
 
-export default function BreakdownTable({
-  data,
-}: Props) {
-  return (
-    <div className="mt-8 rounded-2xl border p-6">
-      <h3 className="mb-5 text-2xl font-bold">
-        Year-wise Breakdown
-      </h3>
+  const estimatedReturns =
+    maturityAmount - investedAmount;
 
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse">
+  // Year-wise Breakdown
+  const yearlyData: {
+    year: number;
+    invested: number;
+    returns: number;
+    total: number;
+  }[] = [];
 
-          <thead>
-            <tr className="border-b bg-slate-50">
+  for (let year = 1; year <= years; year++) {
+    const totalMonths = year * 12;
 
-              <th className="px-4 py-3 text-left">
-                Year
-              </th>
+    const totalValue =
+      monthlyInvestment *
+      (((Math.pow(1 + monthlyRate, totalMonths) - 1) /
+        monthlyRate) *
+        (1 + monthlyRate));
 
-              <th className="px-4 py-3 text-right">
-                Invested
-              </th>
+    const totalInvestment =
+      monthlyInvestment * totalMonths;
 
-              <th className="px-4 py-3 text-right">
-                Returns
-              </th>
+    yearlyData.push({
+      year,
+      invested: Math.round(totalInvestment),
+      returns: Math.round(
+        totalValue - totalInvestment
+      ),
+      total: Math.round(totalValue),
+    });
+  }
 
-              <th className="px-4 py-3 text-right">
-                Total Value
-              </th>
-
-            </tr>
-          </thead>
-
-          <tbody>
-
-            {data.map((row) => (
-
-              <tr
-                key={row.year}
-                className="border-b hover:bg-slate-50"
-              >
-
-                <td className="px-4 py-3">
-                  {row.year}
-                </td>
-
-                <td className="px-4 py-3 text-right">
-                  ₹{row.invested.toLocaleString("en-IN")}
-                </td>
-
-                <td className="px-4 py-3 text-right text-green-600 font-medium">
-                  ₹{row.returns.toLocaleString("en-IN")}
-                </td>
-
-                <td className="px-4 py-3 text-right font-semibold">
-                  ₹{row.total.toLocaleString("en-IN")}
-                </td>
-
-              </tr>
-
-            ))}
-
-          </tbody>
-
-        </table>
-      </div>
-    </div>
-  );
+  return {
+    investedAmount: Math.round(
+      investedAmount
+    ),
+    estimatedReturns: Math.round(
+      estimatedReturns
+    ),
+    maturityAmount: Math.round(
+      maturityAmount
+    ),
+    yearlyData,
+  };
 }
