@@ -5,7 +5,8 @@ import { calculatePPF } from "@/lib/ppf";
 import ResultCard from "./ResultCard";
 import SliderInput from "./SliderInput";
 import InvestmentPieChart from "@/components/charts/InvestmentPieChart";
-
+import GrowthChart from "@/components/charts/GrowthChart";
+import BreakdownTable from "@/components/charts/BreakdownTable";
 export default function PPFForm() {
   const [yearlyInvestment, setYearlyInvestment] =
     useState(150000);
@@ -90,6 +91,30 @@ export default function PPFForm() {
           invested={result.totalInvestment}
           returns={result.interestEarned}
         />
+
+        <GrowthChart
+  title="PPF Growth"
+  data={result.yearlyData}
+/>
+
+<BreakdownTable
+  title="Year-wise PPF Breakdown"
+  columns={[
+    {
+      key: "investment",
+      label: "Investment",
+    },
+    {
+      key: "interest",
+      label: "Interest",
+    },
+    {
+      key: "total",
+      label: "Maturity",
+    },
+  ]}
+  data={result.yearlyData}
+/>
 
       </div>
 
