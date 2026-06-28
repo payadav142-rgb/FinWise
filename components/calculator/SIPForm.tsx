@@ -8,8 +8,10 @@ import SliderInput from "./SliderInput";
 import ResultCard from "./ResultCard";
 
 import InvestmentPieChart from "@/components/charts/InvestmentPieChart";
-import BreakdownTable from "@/components/charts/BreakdownTable";
 import GrowthChart from "@/components/charts/GrowthChart";
+import BreakdownTable from "@/components/charts/BreakdownTable";
+
+import DownloadPDFButton from "@/components/common/DownloadPDFButton";
 
 export default function SIPForm() {
   const [monthlyInvestment, setMonthlyInvestment] =
@@ -28,7 +30,10 @@ export default function SIPForm() {
   );
 
   return (
-    <div className="space-y-8">
+    <div
+      id="sip-report"
+      className="space-y-8"
+    >
 
       <SliderInput
         label="Monthly Investment"
@@ -69,17 +74,23 @@ export default function SIPForm() {
 
           <ResultCard
             label="Invested Amount"
-            value={`₹${result.investedAmount.toLocaleString("en-IN")}`}
+            value={`₹${result.investedAmount.toLocaleString(
+              "en-IN"
+            )}`}
           />
 
           <ResultCard
             label="Estimated Returns"
-            value={`₹${result.estimatedReturns.toLocaleString("en-IN")}`}
+            value={`₹${result.estimatedReturns.toLocaleString(
+              "en-IN"
+            )}`}
           />
 
           <ResultCard
             label="Maturity Value"
-            value={`₹${result.maturityAmount.toLocaleString("en-IN")}`}
+            value={`₹${result.maturityAmount.toLocaleString(
+              "en-IN"
+            )}`}
             highlight
           />
 
@@ -113,6 +124,13 @@ export default function SIPForm() {
           },
         ]}
       />
+
+      <div className="flex justify-end">
+        <DownloadPDFButton
+          elementId="sip-report"
+          fileName="SIP_Report"
+        />
+      </div>
 
     </div>
   );
