@@ -8,6 +8,7 @@ import SliderInput from "./SliderInput";
 import ResultCard from "./ResultCard";
 
 import GrowthChart from "@/components/charts/GrowthChart";
+import DownloadPDFButton from "@/components/common/DownloadPDFButton";
 
 export default function CAGRForm() {
   const [initialValue, setInitialValue] =
@@ -26,7 +27,11 @@ export default function CAGRForm() {
   );
 
   return (
-    <div className="space-y-8">
+    <div
+      id="cagr-report"
+      className="space-y-8"
+    >
+      {/* Inputs */}
 
       <SliderInput
         label="Initial Investment"
@@ -57,14 +62,14 @@ export default function CAGRForm() {
         onChange={setYears}
       />
 
-      <div className="border-t pt-8">
+      {/* Results */}
 
+      <div className="border-t pt-8">
         <h3 className="mb-5 text-2xl font-bold">
           Growth Summary
         </h3>
 
         <div className="space-y-4">
-
           <ResultCard
             label="Initial Investment"
             value={`₹${initialValue.toLocaleString(
@@ -84,16 +89,24 @@ export default function CAGRForm() {
             value={`${result.cagr}%`}
             highlight
           />
-
         </div>
-
       </div>
+
+      {/* Growth Chart */}
 
       <GrowthChart
         title="Investment Growth"
         data={result.yearlyData}
       />
 
+      {/* PDF Download */}
+
+      <div className="flex justify-end">
+        <DownloadPDFButton
+          elementId="cagr-report"
+          fileName="CAGR_Report"
+        />
+      </div>
     </div>
   );
 }
