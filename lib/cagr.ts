@@ -3,6 +3,7 @@ export function calculateCAGR(
   endingValue: number,
   years: number
 ) {
+  // Input Validation
   if (
     beginningValue <= 0 ||
     endingValue <= 0 ||
@@ -18,10 +19,9 @@ export function calculateCAGR(
     (Math.pow(
       endingValue / beginningValue,
       1 / years
-    ) -
-      1) *
-    100;
+    ) - 1) * 100;
 
+  // Year-wise Growth
   const yearlyData: {
     year: number;
     invested: number;
@@ -32,11 +32,16 @@ export function calculateCAGR(
   for (let year = 1; year <= years; year++) {
     const total =
       beginningValue *
-      Math.pow(1 + cagr / 100, year);
+      Math.pow(
+        1 + cagr / 100,
+        year
+      );
 
     yearlyData.push({
       year,
-      invested: Math.round(beginningValue),
+      invested: Math.round(
+        beginningValue
+      ),
       returns: Math.round(
         total - beginningValue
       ),
@@ -45,7 +50,9 @@ export function calculateCAGR(
   }
 
   return {
-    cagr: Number(cagr.toFixed(2)),
+    cagr: Number(
+      cagr.toFixed(2)
+    ),
     yearlyData,
   };
 }
