@@ -10,6 +10,7 @@ import SliderInput from "./SliderInput";
 import InvestmentPieChart from "@/components/charts/InvestmentPieChart";
 import GrowthChart from "@/components/charts/GrowthChart";
 import BreakdownTable from "@/components/charts/BreakdownTable";
+import DownloadPDFButton from "@/components/common/DownloadPDFButton";
 
 export default function FDForm() {
   const [principal, setPrincipal] =
@@ -28,8 +29,10 @@ export default function FDForm() {
   );
 
   return (
-    <div className="space-y-8">
-
+    <div
+      id="fd-report"
+      className="space-y-8"
+    >
       {/* Inputs */}
 
       <SliderInput
@@ -64,13 +67,11 @@ export default function FDForm() {
       {/* Results */}
 
       <div className="border-t pt-8">
-
         <h3 className="mb-5 text-2xl font-bold">
           Investment Summary
         </h3>
 
         <div className="space-y-4">
-
           <ResultCard
             label="Principal Amount"
             value={`₹${result.principal.toLocaleString(
@@ -92,26 +93,20 @@ export default function FDForm() {
             )}`}
             highlight
           />
-
         </div>
-
       </div>
 
-      {/* Pie Chart */}
+      {/* Charts */}
 
       <InvestmentPieChart
         invested={result.principal}
         returns={result.interestEarned}
       />
 
-      {/* Growth Chart */}
-
       <GrowthChart
         title="FD Growth"
         data={result.yearlyData}
       />
-
-      {/* Breakdown */}
 
       <BreakdownTable
         title="Year-wise FD Breakdown"
@@ -132,6 +127,14 @@ export default function FDForm() {
         data={result.yearlyData}
       />
 
+      {/* PDF Download */}
+
+      <div className="flex justify-end">
+        <DownloadPDFButton
+          elementId="fd-report"
+          fileName="FD_Report"
+        />
+      </div>
     </div>
   );
 }
