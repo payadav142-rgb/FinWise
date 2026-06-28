@@ -10,6 +10,7 @@ import SliderInput from "./SliderInput";
 import InvestmentPieChart from "@/components/charts/InvestmentPieChart";
 import GrowthChart from "@/components/charts/GrowthChart";
 import BreakdownTable from "@/components/charts/BreakdownTable";
+import DownloadPDFButton from "@/components/common/DownloadPDFButton";
 
 export default function RDForm() {
   const [monthlyDeposit, setMonthlyDeposit] =
@@ -28,7 +29,11 @@ export default function RDForm() {
   );
 
   return (
-    <div className="space-y-8">
+    <div
+      id="rd-report"
+      className="space-y-8"
+    >
+      {/* Inputs */}
 
       <SliderInput
         label="Monthly Deposit"
@@ -59,14 +64,14 @@ export default function RDForm() {
         onChange={setYears}
       />
 
-      <div className="border-t pt-8">
+      {/* Results */}
 
+      <div className="border-t pt-8">
         <h3 className="mb-5 text-2xl font-bold">
           Investment Summary
         </h3>
 
         <div className="space-y-4">
-
           <ResultCard
             label="Total Investment"
             value={`₹${result.totalInvestment.toLocaleString(
@@ -88,10 +93,10 @@ export default function RDForm() {
             )}`}
             highlight
           />
-
         </div>
-
       </div>
+
+      {/* Charts */}
 
       <InvestmentPieChart
         invested={result.totalInvestment}
@@ -122,6 +127,14 @@ export default function RDForm() {
         data={result.yearlyData}
       />
 
+      {/* PDF Download */}
+
+      <div className="flex justify-end">
+        <DownloadPDFButton
+          elementId="rd-report"
+          fileName="RD_Report"
+        />
+      </div>
     </div>
   );
 }
