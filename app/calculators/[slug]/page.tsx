@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+
 import CalculatorLayout from "@/components/calculator/CalculatorLayout";
 import CalculatorContent from "@/components/calculator/CalculatorContent";
-import ArticleSection from "@/components/calculator/ArticleSection";
 import RelatedCalculators from "@/components/calculator/RelatedCalculators";
+import ArticleSection from "@/components/calculator/ArticleSection";
 import { getCalculatorComponent } from "@/components/calculator/CalculatorRegistry";
+
 import { calculators } from "@/data/calculators";
 import { calculatorContent } from "@/data/calculatorContent";
 import { seoData } from "@/data/seo";
 import { articles } from "@/data/articles";
-
-import { notFound } from "next/navigation";
 
 type Props = {
   params: Promise<{
@@ -22,34 +23,79 @@ export async function generateMetadata({
 }: Props): Promise<Metadata> {
   const { slug } = await params;
 
-  const seo =
-    seoData[slug as keyof typeof seoData];
+  const calculator = calculators.find(
+    (item) => item.slug === slug
+  );
 
-  if (!seo) {
+  if (!calculator) {
     return {
-      title: "Calculator Not Found",
+      title: "Calculator Not Found | FinWise",
     };
   }
 
+  const seo =
+    seoData[
+      slug as keyof typeof seoData
+    ];
+
+  const title =
+    seo?.title ??
+    `${calculator.title} | FinWise`;
+
+  const description =
+    seo?.description ??
+    calculator.description;
+
+  const url = `https://finwise-silk.vercel.app/calculators/${slug}`;
+
   return {
-    title: seo.title,
-    description: seo.description,
+    title,
+    description,
+
+    keywords: [
+      calculator.title,
+      "Financial Calculator",
+      "India",
+      "Investment Calculator",
+      "EMI Calculator",
+      "SIP Calculator",
+      "FD Calculator",
+      "RD Calculator",
+      "FinWise",
+    ],
+
+    alternates: {
+      canonical: url,
+    },
 
     openGraph: {
-      title: seo.title,
-      description: seo.description,
+      title,
+      description,
+      url,
+      siteName: "FinWise",
+      locale: "en_IN",
       type: "website",
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+
+    robots: {
+      index: true,
+      follow: true,
     },
   };
 }
-
 export default async function CalculatorPage({
   params,
 }: Props) {
   const { slug } = await params;
 
   const calculator = calculators.find(
-    (calc) => calc.slug === slug
+    (item) => item.slug === slug
   );
 
   if (!calculator) {
@@ -98,6 +144,7 @@ export default async function CalculatorPage({
     name: calculator.title,
     description: calculator.description,
     url: `https://finwise-silk.vercel.app/calculators/${slug}`,
+    inLanguage: "en-IN",
   };
 
   return (
@@ -122,7 +169,7 @@ export default async function CalculatorPage({
 
       <main className="mx-auto max-w-7xl px-6 py-16">
 
-        <div className="mb-4 inline-block rounded-full border border-blue-200 bg-blue-50 px-4 py-1 text-sm font-medium text-blue-700">
+        <div className="mb-4 inline-flex rounded-full border border-blue-200 bg-blue-50 px-4 py-1 text-sm font-medium text-blue-700">
           {calculator.category}
         </div>
 
@@ -130,46 +177,58 @@ export default async function CalculatorPage({
           {calculator.title}
         </h1>
 
-        <p className="mt-5 max-w-3xl text-lg leading-8 text-muted-foreground">
+        <p className="mt-6 max-w-3xl text-lg leading-8 text-muted-foreground">
           {calculator.description}
         </p>
 
-        <div className="mt-10 rounded-2xl border border-blue-100 bg-blue-50 p-6">
-          <h2 className="text-2xl font-semibold">
+        <div className="mt-10 rounded-3xl border border-blue-100 bg-gradient-to-r from-blue-50 to-slate-50 p-8">
+          <h2 className="text-2xl font-bold">
             Free Online {calculator.title}
           </h2>
 
-          <p className="mt-2 text-muted-foreground">
-            Calculate accurate results instantly using our
-            free calculator. Simply enter your details
-            below and get instant results with complete
-            accuracy.
+          <p className="mt-3 max-w-3xl leading-7 text-muted-foreground">
+            Use our free {calculator.title.toLowerCase()}
+            to calculate accurate financial values
+            instantly. Simply enter your details
+            below and receive instant calculations,
+            charts and detailed yearly breakdowns.
           </p>
         </div>
 
-        <CalculatorLayout>
-          {getCalculatorComponent(slug)}
-        </CalculatorLayout>
-
-        {content && (
-          <CalculatorContent
-            overview={content.overview}
-            howItWorks={content.howItWorks}
-            benefits={content.benefits}
-            faqs={content.faqs}
-          />
+        <section
+          id="calculator-result"
+          className="mt-12"
+        >
+          <CalculatorLayout>
+            {getCalculatorComponent(slug)}
+          </CalculatorLayout>
+        </section>
+                {content && (
+          <section className="mt-20">
+            <CalculatorContent
+              overview={content.overview}
+              howItWorks={content.howItWorks}
+              benefits={content.benefits}
+              faqs={content.faqs}
+            />
+          </section>
         )}
 
         {article && (
-          <ArticleSection
-            title={article.title}
-            sections={article.sections}
-          />
+          <section className="mt-20">
+            <ArticleSection
+              title={article.title}
+              sections={article.sections}
+            />
+          </section>
         )}
 
-        <RelatedCalculators
-          currentSlug={slug}
-        />
+        <section className="mt-20">
+          <RelatedCalculators
+            currentSlug={slug}
+          />
+        </section>
+
       </main>
     </>
   );
