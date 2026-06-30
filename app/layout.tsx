@@ -24,21 +24,23 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Free Financial Calculators for India including SIP, EMI, FD, RD, PPF, EPF, NPS, Income Tax, HRA, Gratuity and more.",
+    "Free Financial Calculators for India including SIP, EMI, FD, RD, PPF, EPF, NPS, HRA, Gratuity, Income Tax and more.",
 
   keywords: [
+    "FinWise",
     "Financial Calculator",
     "SIP Calculator",
     "EMI Calculator",
     "FD Calculator",
     "RD Calculator",
     "PPF Calculator",
-    "Income Tax Calculator",
-    "HRA Calculator",
     "EPF Calculator",
     "NPS Calculator",
+    "Income Tax Calculator",
+    "HRA Calculator",
     "Gratuity Calculator",
-    "FinWise",
+    "CTC to In-Hand Calculator",
+    "Investment Calculator",
     "India",
   ],
 
@@ -62,15 +64,15 @@ export const metadata: Metadata = {
 
   icons: {
     icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
     shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
 
   openGraph: {
     title: "FinWise - Financial Calculators for India",
 
     description:
-      "Free Financial Calculators for SIP, EMI, FD, RD, PPF, Income Tax and more.",
+      "Free online Financial Calculators including SIP, EMI, FD, RD, Income Tax, PPF, EPF, NPS and more.",
 
     url: BASE_URL,
 
@@ -101,13 +103,13 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
   },
 
-  verification: {
-    google: "c2E0Y9rYTzrEi_aYV43C725aFKUMCcaoyREP1or5amo",
-  },
-
   robots: {
     index: true,
     follow: true,
+  },
+
+  verification: {
+    google: "c2E0Y9rYTzrEi_aYV43C725aFKUMCcaoyREP1or5amo",
   },
 };
 
@@ -120,13 +122,66 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+
+    name: "FinWise",
+
+    url: BASE_URL,
+
+    logo: `${BASE_URL}/icon-512.png`,
+
+    description:
+      "Free Financial Calculators for India.",
+
+    sameAs: [],
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+
+    "@type": "WebSite",
+
+    name: "FinWise",
+
+    url: BASE_URL,
+
+    potentialAction: {
+      "@type": "SearchAction",
+
+      target: `${BASE_URL}/calculators?search={search_term_string}`,
+
+      "query-input": "required name=search_term_string",
+    },
+  };
+
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
+
         {children}
+
+        {/* Organization Schema */}
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+
+        {/* Website Schema */}
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
+          }}
+        />
 
         {/* Google Analytics */}
 
@@ -151,6 +206,7 @@ export default function RootLayout({
             gtag('config', 'G-2345F2VRYG');
           `}
         </Script>
+
       </body>
     </html>
   );
