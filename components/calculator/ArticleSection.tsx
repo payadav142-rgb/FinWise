@@ -13,24 +13,42 @@ export default function ArticleSection({
   sections,
 }: ArticleSectionProps) {
   return (
-    <section className="mt-20">
-      <h2 className="mb-10 text-4xl font-bold">
-        {title}
-      </h2>
+    <section className="mt-24">
 
-      <div className="space-y-12">
-        {sections.map((section) => (
-          <div key={section.heading}>
-            <h3 className="mb-4 text-2xl font-semibold">
-              {section.heading}
-            </h3>
+      <div className="mx-auto max-w-5xl">
 
-            <div className="leading-8 text-muted-foreground whitespace-pre-line">
-              {section.content}
-            </div>
-          </div>
-        ))}
+        <div className="mb-12 text-center">
+          <h2 className="text-4xl font-extrabold tracking-tight">
+            {title}
+          </h2>
+
+          <p className="mt-4 text-lg text-muted-foreground">
+            Learn everything you need to know with our
+            comprehensive guide.
+          </p>
+        </div>
+
+        <div className="space-y-10">
+
+          {sections.map((section) => (
+            <article
+              key={section.heading}
+              className="rounded-3xl border bg-white p-8 shadow-sm transition hover:shadow-md"
+            >
+              <h3 className="text-2xl font-bold">
+                {section.heading}
+              </h3>
+
+              <div className="mt-5 whitespace-pre-line leading-8 text-muted-foreground">
+                {section.content}
+              </div>
+            </article>
+          ))}
+
+        </div>
+
       </div>
+
     </section>
   );
 }
