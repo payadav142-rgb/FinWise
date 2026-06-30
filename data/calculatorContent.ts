@@ -1,31 +1,99 @@
 export const calculatorContent = {
-  "sip-calculator": {
-    overview:
-      "A SIP Calculator helps investors estimate the future value of their monthly mutual fund investments. It uses the principles of compounding to calculate the maturity value of regular investments over time.",
+"sip-calculator": {
+  overview:
+    "A SIP (Systematic Investment Plan) Calculator is a free financial planning tool that estimates the future value of your mutual fund investments. By entering your monthly investment amount, expected annual return, and investment tenure, you can quickly calculate the estimated maturity amount, wealth created, and total investment. It helps investors visualize long-term wealth creation through the power of compounding and disciplined investing.",
 
-    howItWorks:
-      "A Systematic Investment Plan (SIP) allows you to invest a fixed amount every month into mutual funds. The calculator estimates how much wealth can be accumulated based on investment amount, expected return and tenure.",
+  howItWorks:
+    "The SIP Calculator uses a mathematical formula based on compound interest to estimate the future value of your monthly investments. Simply enter the amount you plan to invest every month, your expected annual rate of return, and the investment duration. The calculator instantly estimates your total invested amount, expected returns, and final maturity value. Although actual mutual fund returns depend on market performance, the calculator provides a realistic estimate for financial planning.",
 
-    benefits: [
-      "Disciplined investing",
-      "Power of compounding",
-      "Rupee cost averaging",
-      "Long-term wealth creation",
-    ],
+  benefits: [
+    "Helps estimate future wealth from monthly SIP investments.",
+    "Demonstrates the long-term power of compounding.",
+    "Makes financial goal planning easier.",
+    "Allows comparison of different investment amounts and tenures.",
+    "Encourages disciplined monthly investing.",
+    "Reduces guesswork while planning investments.",
+    "Supports retirement, education, and wealth creation planning.",
+    "Provides instant calculations without manual formulas.",
+  ],
 
-    faqs: [
-      {
-        question: "Is SIP guaranteed?",
-        answer:
-          "No. SIP returns depend on mutual fund performance and market conditions.",
-      },
-      {
-        question: "Can I stop SIP anytime?",
-        answer:
-          "Yes, most SIPs can be paused or stopped without penalties.",
-      },
-    ],
-  },
+  importantPoints: [
+    "SIP returns are market-linked and not guaranteed.",
+    "Longer investment duration generally improves wealth creation.",
+    "Higher expected returns increase the estimated maturity value.",
+    "Missing SIP installments may affect long-term results.",
+    "Starting early provides maximum benefit from compounding.",
+  ],
+
+  tips: [
+    "Start investing as early as possible to maximize compounding.",
+    "Increase your SIP amount every year with your income.",
+    "Stay invested during market corrections instead of stopping SIPs.",
+    "Choose mutual funds based on your financial goals and risk profile.",
+    "Review your portfolio periodically but avoid unnecessary switching.",
+  ],
+
+  mistakes: [
+    "Stopping SIPs during market downturns.",
+    "Expecting guaranteed or fixed returns from equity mutual funds.",
+    "Choosing funds only based on recent high returns.",
+    "Investing without defining financial goals.",
+    "Ignoring inflation while planning long-term investments.",
+  ],
+
+  faqs: [
+    {
+      question: "What is a SIP Calculator?",
+      answer:
+        "A SIP Calculator is an online tool that estimates the future value of your monthly mutual fund investments using expected returns and investment duration.",
+    },
+    {
+      question: "Are SIP returns guaranteed?",
+      answer:
+        "No. Mutual fund investments are market-linked, and actual returns may differ from the estimated values shown by the calculator.",
+    },
+    {
+      question: "Can I increase my SIP amount later?",
+      answer:
+        "Yes. Most mutual funds allow investors to increase their SIP amount through a step-up SIP or by creating a new SIP.",
+    },
+    {
+      question: "Is SIP better than a lump sum investment?",
+      answer:
+        "It depends on your financial situation. SIPs are suitable for regular investors, while lump sum investments may be suitable when a large amount is available.",
+    },
+    {
+      question: "How much should I invest in SIP every month?",
+      answer:
+        "The ideal SIP amount depends on your financial goals, income, expenses, and investment horizon.",
+    },
+    {
+      question: "Can I stop my SIP anytime?",
+      answer:
+        "Yes. Most mutual fund houses allow investors to stop or pause SIPs without any penalty.",
+    },
+    {
+      question: "Why is long-term investing important in SIP?",
+      answer:
+        "Long-term investing allows your money to benefit from compounding and helps reduce the impact of short-term market volatility.",
+    },
+    {
+      question: "Does the SIP Calculator include taxes?",
+      answer:
+        "No. The calculator estimates investment growth only and does not account for capital gains taxes or exit loads.",
+    },
+    {
+      question: "Can beginners use a SIP Calculator?",
+      answer:
+        "Yes. It is designed for both beginners and experienced investors to estimate future investment growth easily.",
+    },
+    {
+      question: "Is this SIP Calculator free to use?",
+      answer:
+        "Yes. Our SIP Calculator is completely free and can be used unlimited times for financial planning.",
+    },
+  ],
+},
 
   "emi-calculator": {
     overview:
