@@ -17,7 +17,7 @@ export type ArticleSection = {
 export type CalculatorArticle = {
   title: string;
 
-  introduction: string;
+  introduction?: string;
 
   sections: ArticleSection[];
 
