@@ -1,71 +1,79 @@
 export const seoData = {
   "sip-calculator": {
-    title: "SIP Calculator",
+    title: "SIP Calculator | FinWise",
     description:
-      "Calculate SIP returns, maturity value and wealth creation instantly.",
-  },
-
-  "emi-calculator": {
-    title: "EMI Calculator",
-    description:
-      "Calculate home loan, personal loan and car loan EMI instantly.",
-  },
-
-  "fd-calculator": {
-    title: "FD Calculator",
-    description:
-      "Calculate fixed deposit maturity amount and interest earned.",
-  },
-
-  "rd-calculator": {
-    title: "RD Calculator",
-    description:
-      "Calculate recurring deposit maturity amount and returns.",
-  },
-
-  "cagr-calculator": {
-    title: "CAGR Calculator",
-    description:
-      "Calculate compound annual growth rate of investments.",
+      "Free SIP Calculator to calculate SIP returns, maturity amount and wealth creation online for Indian investors.",
   },
 
   "lumpsum-calculator": {
-    title: "Lumpsum Calculator",
+    title: "Lumpsum Calculator | FinWise",
     description:
-      "Calculate future value of one-time investments.",
+      "Calculate future value, investment returns and maturity amount of a lumpsum investment online.",
   },
+
+  "emi-calculator": {
+    title: "EMI Calculator | FinWise",
+    description:
+      "Calculate Home Loan, Car Loan and Personal Loan EMI instantly with our free online EMI Calculator.",
+  },
+
+  "fd-calculator": {
+    title: "FD Calculator | FinWise",
+    description:
+      "Calculate Fixed Deposit maturity amount, interest earned and returns with our free FD Calculator.",
+  },
+
+  "rd-calculator": {
+    title: "RD Calculator | FinWise",
+    description:
+      "Calculate Recurring Deposit maturity amount, interest earned and total returns online.",
+  },
+
+  "cagr-calculator": {
+    title: "CAGR Calculator | FinWise",
+    description:
+      "Calculate Compound Annual Growth Rate (CAGR) of your investments instantly with our free calculator.",
+  },
+
+  "income-tax-calculator": {
+    title: "Income Tax Calculator | FinWise",
+    description:
+      "Calculate income tax under the Old and New Tax Regime instantly using our free Income Tax Calculator.",
+  },
+
   "ppf-calculator": {
-  title: "PPF Calculator",
-  description:
-    "Calculate PPF maturity amount, interest earned and total investment instantly.",
-},
-"ctc-to-inhand-calculator": {
-  title: "CTC to In-Hand Calculator",
-  description:
-    "Calculate your monthly in-hand salary from annual CTC instantly.",
-},
+    title: "PPF Calculator | FinWise",
+    description:
+      "Calculate PPF maturity amount, interest earned and total investment with our free PPF Calculator.",
+  },
 
-"hra-calculator": {
-  title: "HRA Calculator",
-  description:
-    "Calculate HRA exemption under old tax regime instantly.",
-},
+  "ctc-to-inhand-calculator": {
+    title: "CTC to In-Hand Salary Calculator | FinWise",
+    description:
+      "Estimate your monthly in-hand salary from annual CTC with our free CTC to In-Hand Salary Calculator.",
+  },
 
-"epf-calculator": {
-  title: "EPF Calculator",
-  description:
-    "Calculate EPF maturity amount, yearly contributions and interest.",
-},
+  "hra-calculator": {
+    title: "HRA Calculator | FinWise",
+    description:
+      "Calculate House Rent Allowance (HRA) exemption under the Income Tax Act using our free calculator.",
+  },
 
-"nps-calculator": {
-  title: "NPS Calculator",
-  description:
-    "Estimate your NPS retirement corpus and pension benefits.",
-},
+  "epf-calculator": {
+    title: "EPF Calculator | FinWise",
+    description:
+      "Estimate EPF balance, yearly contribution, interest earned and retirement corpus with our EPF Calculator.",
+  },
 
-"gratuity-calculator": {
-  title: "Gratuity Calculator",
-  description:
-    "Calculate gratuity amount based on salary and years of service.",
-},
+  "nps-calculator": {
+    title: "NPS Calculator | FinWise",
+    description:
+      "Estimate your National Pension System retirement corpus and monthly pension using our free NPS Calculator.",
+  },
+
+  "gratuity-calculator": {
+    title: "Gratuity Calculator | FinWise",
+    description:
+      "Calculate gratuity amount based on your salary and years of service instantly using our free calculator.",
+  },
 };
