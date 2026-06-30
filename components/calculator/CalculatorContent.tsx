@@ -38,70 +38,78 @@ export default function CalculatorContent({
         }}
       />
 
-      <section className="mt-16 space-y-12">
+      <section className="mt-20">
+
         {/* Overview */}
-        <div>
-          <h2 className="mb-4 text-3xl font-bold">
+
+        <div className="rounded-3xl border bg-white p-8 shadow-sm">
+          <h2 className="text-3xl font-bold">
             Overview
           </h2>
 
-          <p className="text-muted-foreground leading-8">
+          <p className="mt-5 leading-8 text-muted-foreground">
             {overview}
           </p>
         </div>
 
         {/* How It Works */}
-        <div>
-          <h2 className="mb-4 text-3xl font-bold">
+
+        <div className="mt-10 rounded-3xl border bg-white p-8 shadow-sm">
+          <h2 className="text-3xl font-bold">
             How It Works
           </h2>
 
-          <p className="text-muted-foreground leading-8">
+          <p className="mt-5 leading-8 text-muted-foreground">
             {howItWorks}
           </p>
         </div>
 
         {/* Benefits */}
-        <div>
-          <h2 className="mb-4 text-3xl font-bold">
+
+        <div className="mt-10 rounded-3xl border bg-white p-8 shadow-sm">
+          <h2 className="text-3xl font-bold">
             Benefits
           </h2>
 
-          <ul className="space-y-3">
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
             {benefits.map((benefit) => (
-              <li
+              <div
                 key={benefit}
-                className="rounded-xl border p-4"
+                className="rounded-2xl border border-green-100 bg-green-50 p-5"
               >
-                ✅ {benefit}
-              </li>
+                <div className="font-semibold text-green-700">
+                  ✅ {benefit}
+                </div>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
 
         {/* FAQs */}
-        <div>
-          <h2 className="mb-6 text-3xl font-bold">
+
+        <div className="mt-10 rounded-3xl border bg-white p-8 shadow-sm">
+          <h2 className="mb-8 text-3xl font-bold">
             Frequently Asked Questions
           </h2>
 
-          <div className="space-y-4">
+          <div className="space-y-5">
             {faqs.map((faq) => (
               <div
                 key={faq.question}
-                className="rounded-2xl border p-5"
+                className="rounded-2xl border p-6 transition hover:border-blue-200 hover:shadow-md"
               >
-                <h3 className="font-semibold">
+                <h3 className="text-lg font-semibold">
                   {faq.question}
                 </h3>
 
-                <p className="mt-2 text-muted-foreground">
+                <p className="mt-3 leading-7 text-muted-foreground">
                   {faq.answer}
                 </p>
               </div>
             ))}
           </div>
         </div>
+
       </section>
     </>
   );
