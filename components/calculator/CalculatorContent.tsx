@@ -7,6 +7,9 @@ type CalculatorContentProps = {
   overview: string;
   howItWorks: string;
   benefits: string[];
+  importantPoints?: string[];
+  tips?: string[];
+  mistakes?: string[];
   faqs: FAQ[];
 };
 
@@ -14,6 +17,9 @@ export default function CalculatorContent({
   overview,
   howItWorks,
   benefits,
+  importantPoints,
+  tips,
+  mistakes,
   faqs,
 }: CalculatorContentProps) {
   const faqSchema = {
@@ -38,7 +44,7 @@ export default function CalculatorContent({
         }}
       />
 
-      <section className="mt-20">
+      <section className="mt-20 space-y-10">
 
         {/* Overview */}
 
@@ -54,7 +60,7 @@ export default function CalculatorContent({
 
         {/* How It Works */}
 
-        <div className="mt-10 rounded-3xl border bg-white p-8 shadow-sm">
+        <div className="rounded-3xl border bg-white p-8 shadow-sm">
           <h2 className="text-3xl font-bold">
             How It Works
           </h2>
@@ -66,7 +72,7 @@ export default function CalculatorContent({
 
         {/* Benefits */}
 
-        <div className="mt-10 rounded-3xl border bg-white p-8 shadow-sm">
+        <div className="rounded-3xl border bg-white p-8 shadow-sm">
           <h2 className="text-3xl font-bold">
             Benefits
           </h2>
@@ -75,19 +81,88 @@ export default function CalculatorContent({
             {benefits.map((benefit) => (
               <div
                 key={benefit}
-                className="rounded-2xl border border-green-100 bg-green-50 p-5"
+                className="rounded-2xl border border-green-200 bg-green-50 p-5 transition hover:shadow-sm"
               >
-                <div className="font-semibold text-green-700">
+                <span className="font-semibold text-green-700">
                   ✅ {benefit}
-                </div>
+                </span>
               </div>
             ))}
           </div>
         </div>
 
+        {/* Important Points */}
+
+        {importantPoints && importantPoints.length > 0 && (
+          <div className="rounded-3xl border border-blue-200 bg-blue-50 p-8 shadow-sm">
+
+            <h2 className="text-3xl font-bold text-blue-700">
+              Important Points
+            </h2>
+
+            <div className="mt-6 space-y-4">
+              {importantPoints.map((point) => (
+                <div
+                  key={point}
+                  className="rounded-2xl bg-white p-5"
+                >
+                  📌 {point}
+                </div>
+              ))}
+            </div>
+
+          </div>
+        )}
+
+        {/* Expert Tips */}
+
+        {tips && tips.length > 0 && (
+          <div className="rounded-3xl border border-yellow-200 bg-yellow-50 p-8 shadow-sm">
+
+            <h2 className="text-3xl font-bold text-yellow-700">
+              Expert Tips
+            </h2>
+
+            <div className="mt-6 space-y-4">
+              {tips.map((tip) => (
+                <div
+                  key={tip}
+                  className="rounded-2xl bg-white p-5"
+                >
+                  💡 {tip}
+                </div>
+              ))}
+            </div>
+
+          </div>
+        )}
+
+        {/* Common Mistakes */}
+
+        {mistakes && mistakes.length > 0 && (
+          <div className="rounded-3xl border border-red-200 bg-red-50 p-8 shadow-sm">
+
+            <h2 className="text-3xl font-bold text-red-700">
+              Common Mistakes
+            </h2>
+
+            <div className="mt-6 space-y-4">
+              {mistakes.map((mistake) => (
+                <div
+                  key={mistake}
+                  className="rounded-2xl bg-white p-5"
+                >
+                  ❌ {mistake}
+                </div>
+              ))}
+            </div>
+
+          </div>
+        )}
+
         {/* FAQs */}
 
-        <div className="mt-10 rounded-3xl border bg-white p-8 shadow-sm">
+        <div className="rounded-3xl border bg-white p-8 shadow-sm">
           <h2 className="mb-8 text-3xl font-bold">
             Frequently Asked Questions
           </h2>
