@@ -123,4 +123,138 @@ export const calculatorContent = {
       },
     ],
   },
+
+  "ppf-calculator": {
+    overview:
+      "A PPF Calculator helps estimate the maturity amount, interest earned and total investment in a Public Provident Fund account.",
+
+    howItWorks:
+      "Enter yearly investment, expected interest rate and investment period. The calculator estimates the maturity value using annual compounding.",
+
+    benefits: [
+      "Tax-free returns",
+      "Long-term wealth creation",
+      "Government-backed investment",
+      "Retirement planning",
+    ],
+
+    faqs: [
+      {
+        question: "Is PPF tax free?",
+        answer:
+          "Yes. PPF enjoys EEE (Exempt-Exempt-Exempt) tax status.",
+      },
+    ],
+  },
+
+  "ctc-to-inhand-calculator": {
+    overview:
+      "CTC to In-Hand Calculator estimates your actual monthly take-home salary after deductions.",
+
+    howItWorks:
+      "Enter your annual CTC and applicable deductions like PF to estimate your monthly in-hand salary.",
+
+    benefits: [
+      "Salary planning",
+      "Understand deductions",
+      "Compare job offers",
+      "Estimate monthly income",
+    ],
+
+    faqs: [
+      {
+        question: "Is in-hand salary equal to CTC?",
+        answer:
+          "No. In-hand salary is lower after taxes and deductions.",
+      },
+    ],
+  },
+
+  "hra-calculator": {
+    overview:
+      "HRA Calculator helps calculate House Rent Allowance exemption under the Income Tax Act.",
+
+    howItWorks:
+      "Provide salary, HRA received, rent paid and city type to estimate exemption.",
+
+    benefits: [
+      "Save tax",
+      "Understand HRA exemption",
+      "Salary planning",
+    ],
+
+    faqs: [
+      {
+        question: "Can everyone claim HRA?",
+        answer:
+          "Only salaried individuals receiving HRA can claim exemption.",
+      },
+    ],
+  },
+
+  "epf-calculator": {
+    overview:
+      "EPF Calculator estimates your Provident Fund balance at retirement.",
+
+    howItWorks:
+      "Enter salary, contribution rate, interest rate and years of service to estimate corpus.",
+
+    benefits: [
+      "Retirement planning",
+      "Estimate corpus",
+      "Track EPF growth",
+    ],
+
+    faqs: [
+      {
+        question: "Is EPF mandatory?",
+        answer:
+          "It depends on EPF Act eligibility and employer coverage.",
+      },
+    ],
+  },
+
+  "nps-calculator": {
+    overview:
+      "NPS Calculator estimates your retirement corpus and expected pension.",
+
+    howItWorks:
+      "Enter monthly contribution, expected return and retirement age to estimate wealth.",
+
+    benefits: [
+      "Retirement planning",
+      "Tax benefits",
+      "Estimate pension",
+    ],
+
+    faqs: [
+      {
+        question: "Can I withdraw full NPS corpus?",
+        answer:
+          "No. Current rules require part of the corpus to purchase an annuity.",
+      },
+    ],
+  },
+
+  "gratuity-calculator": {
+    overview:
+      "Gratuity Calculator estimates gratuity payable based on salary and years of service.",
+
+    howItWorks:
+      "Provide last drawn salary and years worked to estimate gratuity as per the Payment of Gratuity Act.",
+
+    benefits: [
+      "Retirement planning",
+      "Estimate gratuity",
+      "Salary benefits planning",
+    ],
+
+    faqs: [
+      {
+        question: "Who is eligible for gratuity?",
+        answer:
+          "Employees completing at least 5 years of continuous service are generally eligible.",
+      },
+    ],
+  },
 };
