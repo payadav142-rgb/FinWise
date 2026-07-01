@@ -96,32 +96,100 @@ export const calculatorContent = {
 },
 
   "emi-calculator": {
-    overview:
-      "An EMI Calculator helps borrowers estimate their monthly loan repayments based on loan amount, interest rate and tenure.",
+  overview:
+    "An EMI (Equated Monthly Installment) Calculator is a free online financial planning tool that helps borrowers estimate their monthly loan repayments before applying for a loan. By entering the loan amount, annual interest rate and repayment tenure, you can instantly calculate your monthly EMI, total interest payable and total repayment amount. Whether you are planning a home loan, personal loan, car loan, education loan or business loan, this calculator helps you compare different loan options and choose the most suitable repayment plan.",
 
-    howItWorks:
-      "The calculator uses the standard EMI formula to determine fixed monthly payments for a loan.",
+  howItWorks:
+    "The EMI Calculator uses the standard Equated Monthly Installment formula to determine your fixed monthly repayment. Simply enter the loan amount, annual interest rate and loan tenure. The calculator automatically computes your monthly EMI, total interest payable and total repayment amount. You can also experiment with different loan amounts, interest rates and repayment periods to compare various borrowing scenarios and select the option that best fits your budget.",
 
-    benefits: [
-      "Better financial planning",
-      "Compare loan options",
-      "Understand interest costs",
-      "Estimate repayment burden",
-    ],
+  benefits: [
+    "Calculates accurate monthly EMI instantly.",
+    "Shows total interest payable over the loan tenure.",
+    "Displays the total repayment amount before borrowing.",
+    "Helps compare different loan offers easily.",
+    "Supports better monthly budget planning.",
+    "Eliminates manual EMI calculations.",
+    "Useful for home, personal, car and education loans.",
+    "Helps borrowers make informed financial decisions.",
+  ],
 
-    faqs: [
-      {
-        question: "Does EMI change every month?",
-        answer:
-          "For fixed-rate loans, EMI generally remains constant.",
-      },
-      {
-        question: "Can I prepay my loan?",
-        answer:
-          "Yes, most lenders allow loan prepayment subject to their terms.",
-      },
-    ],
-  },
+  importantPoints: [
+    "Higher loan amounts increase the monthly EMI.",
+    "Longer loan tenures reduce EMI but increase total interest.",
+    "Lower interest rates reduce the overall borrowing cost.",
+    "Prepayments can reduce either EMI or loan tenure.",
+    "Processing fees and other charges are generally not included in EMI calculations.",
+  ],
+
+  tips: [
+    "Compare interest rates from multiple lenders before borrowing.",
+    "Maintain a good credit score to qualify for lower interest rates.",
+    "Choose the shortest affordable loan tenure.",
+    "Make partial prepayments whenever possible.",
+    "Avoid missing EMI payments to protect your credit score.",
+  ],
+
+  mistakes: [
+    "Choosing a longer tenure only to reduce EMI.",
+    "Ignoring the total interest payable over the loan period.",
+    "Borrowing more than your repayment capacity.",
+    "Comparing loans only on the basis of EMI.",
+    "Ignoring processing fees and other hidden charges.",
+  ],
+
+  faqs: [
+    {
+      question: "What is an EMI Calculator?",
+      answer:
+        "An EMI Calculator is an online tool that estimates your monthly loan installment based on the loan amount, interest rate and repayment tenure.",
+    },
+    {
+      question: "What does EMI stand for?",
+      answer:
+        "EMI stands for Equated Monthly Installment. It is the fixed monthly payment made towards repaying a loan.",
+    },
+    {
+      question: "Does EMI remain the same throughout the loan tenure?",
+      answer:
+        "For fixed-rate loans, the EMI generally remains constant. For floating-rate loans, it may change if the interest rate changes.",
+    },
+    {
+      question: "Can I prepay my loan?",
+      answer:
+        "Yes. Most lenders allow partial or full prepayment, although some may charge prepayment fees depending on the loan type.",
+    },
+    {
+      question: "Which loans can be calculated using this EMI Calculator?",
+      answer:
+        "The calculator can be used for home loans, personal loans, car loans, education loans, business loans and most installment-based loans.",
+    },
+    {
+      question: "Does the EMI Calculator include processing fees?",
+      answer:
+        "No. The calculator estimates only the loan repayment. Additional charges like processing fees or insurance are not included.",
+    },
+    {
+      question: "How can I reduce my EMI?",
+      answer:
+        "You can reduce your EMI by choosing a longer repayment tenure, negotiating a lower interest rate or making a higher down payment.",
+    },
+    {
+      question: "Is this EMI Calculator free to use?",
+      answer:
+        "Yes. Our EMI Calculator is completely free and can be used unlimited times without registration.",
+    },
+    {
+      question: "Can I compare different loan options?",
+      answer:
+        "Yes. You can change the loan amount, interest rate and tenure to compare multiple loan scenarios instantly.",
+    },
+    {
+      question: "Is the EMI shown by the calculator accurate?",
+      answer:
+        "Yes. The calculator uses the standard EMI formula and provides highly accurate estimates based on the values entered.",
+    },
+  ],
+},
 
   "fd-calculator": {
     overview:
