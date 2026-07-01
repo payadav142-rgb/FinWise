@@ -192,27 +192,100 @@ export const calculatorContent = {
 },
 
   "fd-calculator": {
-    overview:
-      "An FD Calculator helps estimate maturity value and interest earned on a fixed deposit investment.",
+  overview:
+    "An FD (Fixed Deposit) Calculator is a free online financial planning tool that helps investors estimate the maturity amount and interest earned on a fixed deposit investment. By entering the investment amount, interest rate and investment tenure, you can instantly calculate your expected returns. It is useful for comparing fixed deposit options across banks and financial institutions while planning safe and predictable investments.",
 
-    howItWorks:
-      "The calculator applies compound growth on the principal amount over the chosen tenure.",
+  howItWorks:
+    "The FD Calculator uses the compound interest formula to estimate the maturity value of your fixed deposit. Simply enter the deposit amount, annual interest rate and investment period. Based on these inputs, the calculator instantly computes the maturity amount and total interest earned. Since different banks may compound interest quarterly, half-yearly or annually, the calculator provides an approximate estimate for financial planning.",
 
-    benefits: [
-      "Safe investment planning",
-      "Estimate maturity value",
-      "Understand interest earnings",
-      "Compare FD options",
-    ],
+  benefits: [
+    "Calculates FD maturity amount instantly.",
+    "Estimates total interest earned accurately.",
+    "Helps compare FD schemes from different banks.",
+    "Supports better financial planning.",
+    "Useful for short-term and long-term investments.",
+    "Saves time by eliminating manual calculations.",
+    "Helps investors understand compound interest growth.",
+    "Provides quick investment estimates before opening an FD.",
+  ],
 
-    faqs: [
-      {
-        question: "Is FD risk-free?",
-        answer:
-          "FDs are generally considered low-risk investments offered by banks and financial institutions.",
-      },
-    ],
-  },
+  importantPoints: [
+    "Higher interest rates result in greater maturity value.",
+    "Longer investment tenure increases total returns.",
+    "Compounding frequency affects final maturity amount.",
+    "Premature withdrawal may reduce overall returns.",
+    "Interest earned on FDs may be taxable depending on applicable tax rules.",
+  ],
+
+  tips: [
+    "Compare FD rates across multiple banks before investing.",
+    "Choose the tenure based on your financial goals.",
+    "Reinvest maturity proceeds if immediate funds are not required.",
+    "Consider senior citizen FD schemes for higher interest rates.",
+    "Evaluate post-tax returns before investing.",
+  ],
+
+  mistakes: [
+    "Choosing an FD only based on the highest interest rate.",
+    "Ignoring taxation on interest income.",
+    "Breaking the FD before maturity without understanding penalties.",
+    "Keeping all investments in a single FD.",
+    "Not comparing FD schemes across banks.",
+  ],
+
+  faqs: [
+    {
+      question: "What is an FD Calculator?",
+      answer:
+        "An FD Calculator is an online tool that estimates the maturity amount and total interest earned on a fixed deposit investment.",
+    },
+    {
+      question: "How is FD interest calculated?",
+      answer:
+        "FD interest is generally calculated using compound interest based on the deposit amount, interest rate, investment tenure and compounding frequency.",
+    },
+    {
+      question: "Are FD returns guaranteed?",
+      answer:
+        "Yes. Fixed Deposits generally provide guaranteed returns as per the interest rate agreed at the time of investment, subject to the bank's terms.",
+    },
+    {
+      question: "Can I withdraw my FD before maturity?",
+      answer:
+        "Yes. Most banks allow premature withdrawal, although a penalty or reduced interest rate may apply.",
+    },
+    {
+      question: "Is FD interest taxable?",
+      answer:
+        "Yes. Interest earned on Fixed Deposits is generally taxable according to the investor's applicable income tax slab.",
+    },
+    {
+      question: "Who should invest in Fixed Deposits?",
+      answer:
+        "FDs are suitable for conservative investors, retirees, first-time investors and anyone seeking stable and predictable returns.",
+    },
+    {
+      question: "Can I compare different FD investments using this calculator?",
+      answer:
+        "Yes. You can change the investment amount, interest rate and tenure to compare multiple FD scenarios.",
+    },
+    {
+      question: "Does this FD Calculator include TDS?",
+      answer:
+        "No. The calculator estimates investment growth only and does not include TDS or income tax calculations.",
+    },
+    {
+      question: "Is this FD Calculator free to use?",
+      answer:
+        "Yes. Our FD Calculator is completely free and can be used unlimited times without registration.",
+    },
+    {
+      question: "Does compounding frequency affect FD returns?",
+      answer:
+        "Yes. More frequent compounding generally results in a slightly higher maturity amount.",
+    },
+  ],
+},
 
   "rd-calculator": {
     overview:
