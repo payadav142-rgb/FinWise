@@ -89,6 +89,7 @@ export async function generateMetadata({
     },
   };
 }
+
 export default async function CalculatorPage({
   params,
 }: Props) {
@@ -152,22 +153,20 @@ export default async function CalculatorPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbSchema
-          ),
+          __html: JSON.stringify(breadcrumbSchema),
         }}
       />
 
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            webpageSchema
-          ),
+          __html: JSON.stringify(webpageSchema),
         }}
       />
 
       <main className="mx-auto max-w-7xl px-6 py-16">
+
+        {/* Header */}
 
         <div className="mb-4 inline-flex rounded-full border border-blue-200 bg-blue-50 px-4 py-1 text-sm font-medium text-blue-700">
           {calculator.category}
@@ -181,19 +180,22 @@ export default async function CalculatorPage({
           {calculator.description}
         </p>
 
+        {/* Hero */}
+
         <div className="mt-10 rounded-3xl border border-blue-100 bg-gradient-to-r from-blue-50 to-slate-50 p-8">
           <h2 className="text-2xl font-bold">
             Free Online {calculator.title}
           </h2>
 
           <p className="mt-3 max-w-3xl leading-7 text-muted-foreground">
-            Use our free {calculator.title.toLowerCase()}
-            to calculate accurate financial values
-            instantly. Simply enter your details
-            below and receive instant calculations,
-            charts and detailed yearly breakdowns.
+            Use our free{" "}
+            {calculator.title.toLowerCase()} to calculate accurate financial
+            values instantly. Simply enter your details below and receive
+            instant calculations, charts and detailed yearly breakdowns.
           </p>
         </div>
+
+        {/* Calculator */}
 
         <section
           id="calculator-result"
@@ -203,7 +205,10 @@ export default async function CalculatorPage({
             {getCalculatorComponent(slug)}
           </CalculatorLayout>
         </section>
-                {content && (
+
+        {/* Content */}
+
+        {content && (
           <section className="mt-20">
             <CalculatorContent
               overview={content.overview}
@@ -214,14 +219,15 @@ export default async function CalculatorPage({
           </section>
         )}
 
+        {/* Long-form SEO Article */}
+
         {article && (
           <section className="mt-20">
-            <ArticleSection
-              title={article.title}
-              sections={article.sections}
-            />
+            <ArticleSection {...article} />
           </section>
         )}
+
+        {/* Related */}
 
         <section className="mt-20">
           <RelatedCalculators
