@@ -14,6 +14,16 @@ export type ArticleSection = {
   content: string;
 };
 
+export type Source = {
+  title: string;
+  url: string;
+};
+
+export type FAQ = {
+  question: string;
+  answer: string;
+};
+
 export type CalculatorArticle = {
   title: string;
 
@@ -34,4 +44,16 @@ export type CalculatorArticle = {
   mistakes?: string[];
 
   conclusion?: string;
+
+  /* Premium Fields */
+
+  readingTime?: string;
+
+  lastUpdated?: string;
+
+  reviewedBy?: string;
+
+  sources?: Source[];
+
+  faqs?: FAQ[];
 };
