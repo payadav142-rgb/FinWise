@@ -446,24 +446,88 @@ export const calculatorContent = {
   },
 
   "gratuity-calculator": {
-    overview:
-      "Gratuity Calculator estimates gratuity payable based on salary and years of service.",
+  overview:
+    "A Gratuity Calculator is a free online financial planning tool that helps employees estimate the gratuity amount payable based on their last drawn salary and years of continuous service. It instantly calculates the estimated gratuity according to the Payment of Gratuity Act, making retirement planning and financial forecasting much easier.",
 
-    howItWorks:
-      "Provide last drawn salary and years worked to estimate gratuity as per the Payment of Gratuity Act.",
+  howItWorks:
+    "The calculator uses your last drawn Basic Salary plus Dearness Allowance (DA) and your total years of continuous service to estimate the gratuity amount. It applies the standard gratuity formula prescribed under the Payment of Gratuity Act, 1972 and instantly displays the estimated gratuity payable. The calculator is suitable for private sector employees, public sector employees and organizations covered under the Gratuity Act.",
 
-    benefits: [
-      "Retirement planning",
-      "Estimate gratuity",
-      "Salary benefits planning",
-    ],
+  benefits: [
+    "Instantly estimates gratuity amount.",
+    "Helps employees plan retirement finances.",
+    "Eliminates manual gratuity calculations.",
+    "Useful before changing jobs or retirement.",
+    "Supports long-term financial planning.",
+    "Provides accurate estimates based on salary and service period.",
+    "Completely free to use.",
+    "Simple and beginner-friendly interface."
+  ],
 
-    faqs: [
-      {
-        question: "Who is eligible for gratuity?",
-        answer:
-          "Employees completing at least 5 years of continuous service are generally eligible.",
-      },
-    ],
-  },
+  importantPoints: [
+    "Employees generally become eligible after completing 5 years of continuous service.",
+    "Gratuity is calculated using Basic Salary and Dearness Allowance (DA).",
+    "Actual gratuity payable depends on employer policies and applicable laws.",
+    "Government and private sector gratuity rules may differ slightly.",
+    "Income tax rules on gratuity depend on employee category and exemption limits."
+  ],
+
+  tips: [
+    "Keep track of your total years of continuous service.",
+    "Understand your company's gratuity policy before changing jobs.",
+    "Include gratuity while planning retirement corpus.",
+    "Verify your last drawn Basic Salary before calculation.",
+    "Consult a tax professional if gratuity exceeds exemption limits."
+  ],
+
+  mistakes: [
+    "Using gross salary instead of Basic Salary plus DA.",
+    "Ignoring eligibility requirements under the Gratuity Act.",
+    "Assuming every employee automatically receives gratuity.",
+    "Not considering tax implications on gratuity.",
+    "Calculating gratuity using incorrect years of service."
+  ],
+
+  faqs: [
+    {
+      question: "What is a Gratuity Calculator?",
+      answer:
+        "A Gratuity Calculator estimates the gratuity payable based on salary and years of continuous service."
+    },
+    {
+      question: "Who is eligible for gratuity?",
+      answer:
+        "Employees who complete at least five years of continuous service are generally eligible under the Payment of Gratuity Act."
+    },
+    {
+      question: "How is gratuity calculated?",
+      answer:
+        "Gratuity is generally calculated using the last drawn Basic Salary, Dearness Allowance and completed years of service."
+    },
+    {
+      question: "Is gratuity taxable?",
+      answer:
+        "Taxability depends on employee category and applicable income tax provisions."
+    },
+    {
+      question: "Can I calculate gratuity before retirement?",
+      answer:
+        "Yes. The calculator estimates gratuity for employees planning retirement or job changes."
+    },
+    {
+      question: "Does gratuity include bonuses?",
+      answer:
+        "No. Gratuity is generally calculated using Basic Salary and Dearness Allowance only."
+    },
+    {
+      question: "Is this Gratuity Calculator free?",
+      answer:
+        "Yes. It is completely free and can be used unlimited times."
+    },
+    {
+      question: "Does the calculator provide exact gratuity?",
+      answer:
+        "It provides an estimate. The final amount depends on employer policies and applicable laws."
+    }
+  ]
+},
 };
