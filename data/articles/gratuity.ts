@@ -4,33 +4,37 @@ export const gratuityArticle: CalculatorArticle = {
   title: "Gratuity Calculator – Calculate Gratuity Amount Online",
 
   introduction:
-    "A Gratuity Calculator is a free online financial planning tool that helps employees estimate the gratuity amount payable after completing continuous service with an employer. Gratuity is a statutory retirement benefit governed by the Payment of Gratuity Act, 1972 for eligible organizations in India. By entering your last drawn salary and years of service, our calculator instantly estimates your gratuity amount, helping you plan your retirement and long-term finances more effectively.",
+    "A Gratuity Calculator is a free online retirement planning tool that helps salaried employees estimate the gratuity amount payable after completing continuous service with an employer. Gratuity is a statutory retirement benefit governed by the Payment of Gratuity Act, 1972 for eligible establishments in India. By entering your last drawn Basic Salary, Dearness Allowance (DA) and years of service, our Gratuity Calculator instantly estimates the gratuity amount payable, helping employees plan retirement and long-term finances more effectively.",
 
   sections: [
+
     {
       heading: "What is Gratuity?",
 
       content: `
 
-Gratuity is a lump-sum monetary benefit paid by an employer to an employee as a reward for long and continuous service.
+Gratuity is a lump-sum financial benefit paid by an employer to an employee as a reward for long and continuous service.
 
-Unlike monthly salary, gratuity is paid only once when an employee leaves the organization after becoming eligible.
+Unlike salary, gratuity is generally paid only once when an employee leaves the organization after satisfying the eligibility conditions prescribed under the Payment of Gratuity Act.
 
-It is commonly paid when an employee:
+Gratuity may become payable when an employee:
 
 • Retires
 
-• Resigns after completing the minimum service period
+• Resigns after completing the minimum qualifying service
 
-• Becomes permanently disabled
+• Takes voluntary retirement
+
+• Suffers permanent disability
 
 • Passes away (paid to the legal nominee)
 
-Gratuity acts as a financial cushion that helps employees during retirement or while transitioning between jobs.
+It acts as an important retirement benefit that provides financial support during retirement or while transitioning between jobs.
 
-It is one of the most important retirement benefits available to salaried employees in India.
+Because gratuity is entirely funded by the employer, employees are not required to contribute separately towards it.
 
 `,
+
     },
 
     {
@@ -38,41 +42,28 @@ It is one of the most important retirement benefits available to salaried employ
 
       content: `
 
-A Gratuity Calculator is an online financial tool that estimates the gratuity amount payable based on your salary and years of continuous service.
+A Gratuity Calculator is an online financial planning tool that estimates the gratuity amount payable based on salary and years of continuous service.
 
-Instead of manually applying gratuity formulas, the calculator performs all calculations instantly.
+Instead of manually applying gratuity formulas, users simply enter:
 
-It generally calculates:
+• Last Drawn Basic Salary
 
-• Eligible years of service
+• Dearness Allowance (DA)
 
-• Salary considered for gratuity
+• Years of Continuous Service
 
-• Estimated gratuity amount
+The calculator instantly estimates:
 
-The calculator provides quick and reliable estimates that help employees understand their retirement benefits well in advance.
+• Salary Considered
 
-`,
-    },
+• Eligible Service Period
 
-    {
-      heading: "Who is Eligible for Gratuity?",
+• Estimated Gratuity Amount
 
-      content: `
-
-Under the Payment of Gratuity Act, employees generally become eligible after completing at least five years of continuous service with the same employer.
-
-However, this condition does not apply in cases involving:
-
-• Death of the employee
-
-• Permanent disability
-
-Most factories, companies, mines, shops and commercial establishments covered under the Act are required to provide gratuity to eligible employees.
-
-Some organizations may also provide gratuity benefits through their own company policies even if they are not legally required.
+This allows employees to understand their retirement benefits long before leaving their organization.
 
 `,
+
     },
 
     {
@@ -82,23 +73,47 @@ Some organizations may also provide gratuity benefits through their own company 
 
 Many employees are unaware of the gratuity amount they may receive until retirement or resignation.
 
-A Gratuity Calculator helps eliminate uncertainty by providing an estimated gratuity amount instantly.
+A Gratuity Calculator removes this uncertainty by providing quick and accurate estimates.
 
-It helps you:
+Using the calculator helps you:
 
-• Plan retirement finances
+• Estimate retirement benefits.
 
-• Estimate employee benefits
+• Plan long-term finances.
 
-• Compare job opportunities
+• Compare employment opportunities.
 
-• Understand long-term savings
+• Understand employee benefits.
 
-• Make informed financial decisions
+• Estimate retirement corpus.
 
-Instead of spending time performing manual calculations, you receive accurate estimates within seconds.
+• Make informed financial decisions.
+
+Instead of performing manual calculations using statutory formulas, employees receive reliable estimates instantly.
 
 `,
+
+    },
+
+    {
+      heading: "Who is Eligible for Gratuity?",
+
+      content: `
+
+Under the Payment of Gratuity Act, employees generally become eligible for gratuity after completing five years of continuous service with the same employer.
+
+However, this minimum service requirement is generally waived in cases involving:
+
+• Death
+
+• Permanent Disability
+
+Most factories, companies, mines, plantations, ports, shops and commercial establishments covered under the Act are required to pay gratuity to eligible employees.
+
+Some employers may voluntarily provide gratuity benefits even if they are not legally covered under the Act.
+
+`,
+
     },
 
     {
@@ -106,21 +121,24 @@ Instead of spending time performing manual calculations, you receive accurate es
 
       content: `
 
-The calculator requires only a few simple details.
+The calculator requires only a few basic inputs.
 
-These usually include:
+These include:
 
 • Last Drawn Basic Salary
 
 • Dearness Allowance (DA)
 
-• Total Years of Continuous Service
+• Years of Continuous Service
 
-Based on these inputs, the calculator applies the gratuity formula prescribed under the Payment of Gratuity Act.
+Using these values, the calculator applies the standard gratuity formula prescribed under the Payment of Gratuity Act.
 
-It instantly displays your estimated gratuity amount without requiring any manual calculations.
+Within seconds, it estimates the gratuity amount payable without requiring any manual calculations.
+
+This makes retirement planning significantly easier for salaried employees.
 
 `,
+
     },
 
     {
@@ -128,34 +146,36 @@ It instantly displays your estimated gratuity amount without requiring any manua
 
       content: `
 
-Gratuity is an important part of retirement planning because it provides a lump-sum amount after years of dedicated service.
+Gratuity forms an important component of retirement planning because it provides a lump-sum payment after years of dedicated service.
 
-This money can be used for:
+Employees often use gratuity for:
 
 • Retirement expenses
 
+• Medical emergencies
+
+• Debt repayment
+
+• Children's education
+
+• Wealth creation
+
 • Emergency funds
 
-• Medical costs
-
-• Investment opportunities
-
-• Loan repayment
-
-• Wealth preservation
-
-Employees should always include gratuity while estimating their overall retirement corpus along with EPF, NPS, PPF and personal investments.
+When combined with EPF, NPS, PPF and personal investments, gratuity strengthens overall retirement security.
 
 `,
+
     },
-        {
-      heading: "Factors Affecting Gratuity Amount",
+
+    {
+      heading: "Factors Affecting Your Gratuity Amount",
 
       content: `
 
 Several factors determine the gratuity amount payable to an employee.
 
-The most important factors include:
+These include:
 
 • Last Drawn Basic Salary
 
@@ -169,29 +189,58 @@ The most important factors include:
 
 • Applicable Labour Laws
 
-Generally, employees with higher salaries and longer service receive a larger gratuity amount.
+Generally, employees with higher salaries and longer service periods receive a larger gratuity amount.
 
 `,
-    },
 
-    {
+    },
+        {
       heading: "Gratuity Formula Explained",
 
       content: `
 
-The Payment of Gratuity Act prescribes a standard formula for calculating gratuity.
+Although employees rarely calculate gratuity manually, understanding the formula helps explain how the amount is determined.
 
-The formula assumes that an employee earns wages for 26 working days in a month and receives gratuity equal to 15 days' salary for every completed year of service.
+The standard gratuity formula prescribed under the Payment of Gratuity Act is:
 
-Salary considered for gratuity generally includes:
+Gratuity = (Last Drawn Salary × 15 × Years of Service) ÷ 26
 
-• Basic Salary
+Where:
 
-• Dearness Allowance (DA)
+Last Drawn Salary = Basic Salary + Dearness Allowance (DA)
 
-Allowances like HRA, Bonus, Incentives and Overtime are generally not included.
+15 = Salary payable for 15 working days
 
-Our Gratuity Calculator performs this calculation instantly and provides an accurate estimate.
+26 = Number of working days considered in a month
+
+Years of Service = Completed years of continuous service
+
+This formula estimates the gratuity payable for employees covered under the Payment of Gratuity Act.
+
+Our Gratuity Calculator performs these calculations automatically and instantly provides an accurate estimate.
+
+`,
+
+    },
+
+    {
+      heading: "Practical Example of Gratuity Calculation",
+
+      content: `
+
+Suppose an employee has:
+
+Last Drawn Basic Salary + DA = ₹50,000 per month
+
+Years of Continuous Service = 12 Years
+
+Using the standard gratuity formula:
+
+Gratuity = (50,000 × 15 × 12) ÷ 26
+
+Estimated Gratuity = ₹3,46,154 (Approx.)
+
+The actual gratuity payable may vary depending on employer policies, applicable labour laws and statutory limits.
 
 `,
     },
@@ -201,21 +250,21 @@ Our Gratuity Calculator performs this calculation instantly and provides an accu
 
       content: `
 
-Gratuity becomes payable when an employee leaves the organization after becoming eligible.
+Gratuity generally becomes payable when an employee leaves the organization after becoming eligible.
 
-It is commonly paid when an employee:
+Some common situations include:
 
-• Retires
+• Retirement
 
-• Resigns after completing the required service period
+• Resignation after completing the qualifying service period
 
-• Takes voluntary retirement
+• Voluntary retirement
 
-• Suffers permanent disability
+• Permanent disability
 
-• Passes away (paid to the nominee)
+• Death of the employee (paid to the nominee)
 
-Employers are generally required to release gratuity within the prescribed time limit under the applicable law.
+Employers are generally required to release gratuity within the prescribed time period under applicable laws after it becomes payable.
 
 `,
     },
@@ -225,70 +274,180 @@ Employers are generally required to release gratuity within the prescribed time 
 
       content: `
 
-The taxation of gratuity depends on the category of employee.
+The tax treatment of gratuity depends on the category of employee and applicable income tax provisions.
 
-Government employees generally receive complete tax exemption on gratuity.
+Government Employees
 
-Private sector employees may receive tax exemption up to the limits specified under the Income Tax Act.
+Gratuity received by government employees is generally fully exempt from income tax.
 
-If gratuity exceeds the applicable exemption limit, the remaining amount may become taxable.
+Private Sector Employees
 
-Employees should always consult the latest income tax provisions while planning retirement.
+Private sector employees may receive tax exemption up to the limits prescribed under the Income Tax Act.
+
+Any gratuity exceeding the applicable exemption limit may become taxable.
+
+Since tax provisions may change from time to time, employees should verify the latest rules while planning retirement.
 
 `,
     },
 
     {
-      heading: "Difference Between Gratuity and EPF",
+      heading: "Gratuity vs Employees' Provident Fund (EPF)",
 
       content: `
 
-Although both gratuity and EPF are retirement benefits, they work differently.
+Although gratuity and EPF are both retirement benefits, they differ significantly.
 
-Gratuity:
+Gratuity
 
 • Paid entirely by the employer.
 
-• Paid once after leaving the organization.
+• Paid only once after leaving the organization.
 
-• Depends on years of service.
+• Depends mainly on salary and years of service.
 
-EPF:
+Employees' Provident Fund (EPF)
 
-• Monthly contributions by employer and employee.
+• Monthly contributions are made throughout employment.
 
-• Earns annual interest.
+• Both employer and employee contribute.
 
-• Builds retirement corpus gradually.
+• Interest is credited annually.
 
-Together, both benefits strengthen long-term financial security.
+• Creates a retirement corpus gradually over time.
+
+Together, gratuity and EPF provide stronger financial security after retirement.
 
 `,
     },
 
     {
-      heading: "Why Employees Should Estimate Gratuity Early",
+      heading: "Advantages of Using a Gratuity Calculator",
 
       content: `
 
-Knowing your estimated gratuity helps you prepare for retirement more effectively.
+A Gratuity Calculator offers several practical benefits.
 
-Employees can use this estimate to:
+• Instantly estimates gratuity payable.
 
-• Calculate retirement corpus
+• Eliminates manual calculation errors.
 
-• Plan future investments
+• Helps employees plan retirement finances.
 
-• Estimate emergency savings
+• Useful before changing jobs.
 
-• Compare employment opportunities
+• Supports long-term financial planning.
 
-• Make better financial decisions
+• Helps estimate retirement corpus.
 
-Using a Gratuity Calculator every year gives a clear picture of how your retirement benefits are growing with your salary and years of service.
+• Completely free and easy to use.
+
+• Suitable for employees across different sectors.
+
+Whether you are approaching retirement or evaluating a new career opportunity, a Gratuity Calculator helps you understand your employee benefits more effectively.
 
 `,
     },
+
+    {
+      heading: "Limitations of a Gratuity Calculator",
+
+      content: `
+
+Although the calculator provides reliable estimates, users should understand its limitations.
+
+The calculator generally does not account for:
+
+• Employer-specific gratuity policies
+
+• Future salary revisions
+
+• Tax calculations
+
+• Changes in labour laws
+
+• Statutory gratuity limits
+
+Therefore, the displayed gratuity amount should be treated as an estimate for financial planning purposes rather than the exact amount payable.
+
+`,
+    },
+        {
+      heading: "Expert Tips Before Claiming Gratuity",
+
+      content: `
+
+Financial experts recommend understanding gratuity rules well before retirement or changing jobs.
+
+Some useful tips include:
+
+• Keep track of your total years of continuous service.
+
+• Verify your last drawn Basic Salary and Dearness Allowance before calculation.
+
+• Understand your employer's gratuity policy.
+
+• Keep employment and salary records safely.
+
+• Include gratuity while estimating your retirement corpus.
+
+• Review gratuity whenever your salary increases.
+
+• Understand the applicable tax rules before retirement.
+
+• Nominate a legal beneficiary to avoid future complications.
+
+Following these practices helps employees maximize retirement benefits and plan their finances more effectively.
+
+`,
+    },
+
+    {
+      heading: "Common Mistakes Employees Should Avoid",
+
+      content: `
+
+Many employees make avoidable mistakes while estimating or claiming gratuity.
+
+Some of the most common mistakes include:
+
+• Using gross salary instead of Basic Salary plus Dearness Allowance.
+
+• Ignoring the minimum eligibility requirements.
+
+• Calculating gratuity using incorrect years of service.
+
+• Assuming every employer follows identical gratuity rules.
+
+• Ignoring applicable tax provisions.
+
+• Not including gratuity while planning retirement.
+
+• Depending entirely on gratuity for retirement income.
+
+• Forgetting to nominate a legal beneficiary.
+
+Avoiding these mistakes helps employees estimate gratuity accurately and prepare better for retirement.
+
+`,
+    },
+
+    {
+      heading: "Conclusion",
+
+      content: `
+
+A Gratuity Calculator is one of the most useful retirement planning tools for salaried employees.
+
+It helps estimate the gratuity amount payable based on your last drawn salary and years of continuous service without requiring manual calculations.
+
+By understanding gratuity eligibility, statutory rules and the calculation formula, employees can plan retirement more confidently and estimate their overall retirement corpus accurately.
+
+Whether you are approaching retirement, planning a career change or evaluating long-term employee benefits, using a Gratuity Calculator helps you make informed financial decisions and prepare for a financially secure future.
+
+`,
+    },
+
   ],
 
   formula: {
@@ -298,31 +457,34 @@ Using a Gratuity Calculator every year gives a clear picture of how your retirem
       "Gratuity = (Last Drawn Salary × 15 × Years of Service) ÷ 26",
 
     explanation:
-      "The formula prescribed under the Payment of Gratuity Act calculates gratuity based on 15 days' salary for every completed year of continuous service. Salary generally includes Basic Salary plus Dearness Allowance (DA).",
+      "The gratuity formula prescribed under the Payment of Gratuity Act calculates the amount payable based on the employee's last drawn Basic Salary plus Dearness Allowance (DA), completed years of continuous service and 15 days' salary for every completed year. Our Gratuity Calculator performs this calculation instantly and provides an estimated gratuity amount.",
   },
 
   example: {
-    title: "Gratuity Calculation Example",
+    title: "Practical Example",
 
     description: `
 
-Suppose your last drawn Basic Salary plus Dearness Allowance is ₹50,000 per month.
+Last Drawn Basic Salary + DA : ₹50,000 per month
 
-Years of Continuous Service = 12 Years
+Years of Continuous Service : 12 Years
+
+Formula Applied :
 
 Gratuity = (50,000 × 15 × 12) ÷ 26
 
-Estimated Gratuity = ₹3,46,154 (Approx.)
+Estimated Gratuity : ₹3,46,154 (Approx.)
 
-The actual gratuity payable may vary depending on employer policies and applicable legal provisions.
+The actual gratuity payable may vary depending on employer policies, statutory limits and applicable labour laws.
 
 `,
   },
-    advantages: [
+
+  advantages: [
     "Provides an instant estimate of gratuity payable.",
     "Helps employees plan retirement finances effectively.",
     "Eliminates manual calculations and reduces errors.",
-    "Useful while changing jobs or planning retirement.",
+    "Useful before changing jobs or retirement.",
     "Supports long-term financial planning.",
     "Completely free and easy to use.",
     "Suitable for both private and public sector employees.",
@@ -360,6 +522,6 @@ The actual gratuity payable may vary depending on employer policies and applicab
   ],
 
   conclusion:
-    "A Gratuity Calculator is an essential retirement planning tool for every salaried employee. It helps estimate the gratuity amount payable based on your last drawn salary and years of continuous service. Although the calculator provides only an estimated value, it offers valuable insights into your retirement benefits and helps you make better financial decisions. By understanding gratuity rules, monitoring your eligibility and planning ahead, you can build a stronger financial future and retire with greater confidence.",
+    "A Gratuity Calculator is an essential retirement planning tool for every salaried employee. It helps estimate the gratuity amount payable based on the last drawn salary and years of continuous service, making retirement planning simple and accurate. Although the calculator provides an estimated value, it offers valuable insights into employee benefits and long-term financial security. By understanding gratuity rules, maintaining proper records and planning ahead, employees can make informed financial decisions and build a stronger retirement corpus with confidence.",
 
 };
