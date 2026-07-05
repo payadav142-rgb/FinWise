@@ -11,12 +11,18 @@ import { epfArticle } from "./epf";
 import { npsArticle } from "./nps";
 import { ctcArticle } from "./ctc";
 
+import { lumpsumArticle } from "./lumpsum";
+import { incomeTaxArticle } from "./incomeTax";
+
 export const articles = {
   "sip-calculator": sipArticle,
   "emi-calculator": emiArticle,
   "fd-calculator": fdArticle,
   "rd-calculator": rdArticle,
   "cagr-calculator": cagrArticle,
+
+  "lumpsum-calculator": lumpsumArticle,
+  "income-tax-calculator": incomeTaxArticle,
 
   "ppf-calculator": ppfArticle,
   "hra-calculator": hraArticle,
