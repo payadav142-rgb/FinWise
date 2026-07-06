@@ -12,6 +12,8 @@ import { calculatorContent } from "@/data/calculatorContent";
 import { seoData } from "@/data/seo";
 import { articles } from "@/data/articles";
 
+const BASE_URL = "https://finwise-silk.vercel.app";
+
 type Props = {
   params: Promise<{
     slug: string;
@@ -30,6 +32,12 @@ export async function generateMetadata({
   if (!calculator) {
     return {
       title: "Calculator Not Found | FinWise",
+      description:
+        "The requested calculator could not be found.",
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
 
@@ -46,7 +54,7 @@ export async function generateMetadata({
     seo?.description ??
     calculator.description;
 
-  const url = `https://finwise-silk.vercel.app/calculators/${slug}`;
+  const url = `${BASE_URL}/calculators/${slug}`;
 
   return {
     title,
@@ -55,13 +63,19 @@ export async function generateMetadata({
     keywords: [
       calculator.title,
       "Financial Calculator",
-      "India",
       "Investment Calculator",
-      "EMI Calculator",
+      "India",
+      "FinWise",
       "SIP Calculator",
+      "EMI Calculator",
       "FD Calculator",
       "RD Calculator",
-      "FinWise",
+      "PPF Calculator",
+      "EPF Calculator",
+      "NPS Calculator",
+      "Income Tax Calculator",
+      "HRA Calculator",
+      "Gratuity Calculator",
     ],
 
     alternates: {
@@ -75,21 +89,41 @@ export async function generateMetadata({
       siteName: "FinWise",
       locale: "en_IN",
       type: "website",
+
+      images: [
+        {
+          url: `${BASE_URL}/og-image.png`,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
     },
 
     twitter: {
       card: "summary_large_image",
       title,
       description,
+
+      images: [
+        `${BASE_URL}/og-image.png`,
+      ],
     },
 
     robots: {
       index: true,
       follow: true,
+
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
     },
   };
 }
-
 export default async function CalculatorPage({
   params,
 }: Props) {
@@ -113,28 +147,31 @@ export default async function CalculatorPage({
       slug as keyof typeof articles
     ];
 
+  const pageUrl = `${BASE_URL}/calculators/${slug}`;
+
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+
     itemListElement: [
       {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://finwise-silk.vercel.app",
+        item: BASE_URL,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Calculators",
-        item:
-          "https://finwise-silk.vercel.app/calculators",
+        item: `${BASE_URL}/calculators`,
       },
       {
         "@type": "ListItem",
         position: 3,
         name: calculator.title,
-        item: `https://finwise-silk.vercel.app/calculators/${slug}`,
+        item: pageUrl,
       },
     ],
   };
@@ -142,10 +179,31 @@ export default async function CalculatorPage({
   const webpageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
+
+    "@id": pageUrl,
+
+    url: pageUrl,
+
     name: calculator.title,
+
     description: calculator.description,
-    url: `https://finwise-silk.vercel.app/calculators/${slug}`,
+
     inLanguage: "en-IN",
+
+    isPartOf: {
+      "@type": "WebSite",
+      name: "FinWise",
+      url: BASE_URL,
+    },
+
+    breadcrumb: {
+      "@id": `${pageUrl}#breadcrumb`,
+    },
+
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      url: `${BASE_URL}/og-image.png`,
+    },
   };
 
   return (
@@ -153,28 +211,36 @@ export default async function CalculatorPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbSchema),
+          __html: JSON.stringify(
+            breadcrumbSchema
+          ),
         }}
       />
 
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(webpageSchema),
+          __html: JSON.stringify(
+            webpageSchema
+          ),
         }}
       />
 
       <main className="mx-auto max-w-7xl px-6 py-16">
 
-        {/* Header */}
+        {/* Category */}
 
         <div className="mb-4 inline-flex rounded-full border border-blue-200 bg-blue-50 px-4 py-1 text-sm font-medium text-blue-700">
           {calculator.category}
         </div>
 
+        {/* Title */}
+
         <h1 className="text-5xl font-extrabold tracking-tight">
           {calculator.title}
         </h1>
+
+        {/* Description */}
 
         <p className="mt-6 max-w-3xl text-lg leading-8 text-muted-foreground">
           {calculator.description}
@@ -183,16 +249,20 @@ export default async function CalculatorPage({
         {/* Hero */}
 
         <div className="mt-10 rounded-3xl border border-blue-100 bg-gradient-to-r from-blue-50 to-slate-50 p-8">
+
           <h2 className="text-2xl font-bold">
             Free Online {calculator.title}
           </h2>
 
           <p className="mt-3 max-w-3xl leading-7 text-muted-foreground">
             Use our free{" "}
-            {calculator.title.toLowerCase()} to calculate accurate financial
-            values instantly. Simply enter your details below and receive
-            instant calculations, charts and detailed yearly breakdowns.
+            {calculator.title.toLowerCase()} to
+            calculate accurate financial values
+            instantly. Enter your values below
+            to receive instant results, charts,
+            and yearly breakdowns.
           </p>
+
         </div>
 
         {/* Calculator */}
@@ -205,17 +275,31 @@ export default async function CalculatorPage({
             {getCalculatorComponent(slug)}
           </CalculatorLayout>
         </section>
-
-        {/* Content */}
+                {/* Calculator Content */}
 
         {content && (
           <section className="mt-20">
             <CalculatorContent
-              overview={content.overview}
-              howItWorks={content.howItWorks}
-              benefits={content.benefits}
-              faqs={content.faqs}
-            />
+  overview={content.overview}
+  howItWorks={content.howItWorks}
+  benefits={content.benefits}
+  importantPoints={
+    "importantPoints" in content
+      ? content.importantPoints
+      : undefined
+  }
+  tips={
+    "tips" in content
+      ? content.tips
+      : undefined
+  }
+  mistakes={
+    "mistakes" in content
+      ? content.mistakes
+      : undefined
+  }
+  faqs={content.faqs}
+/>
           </section>
         )}
 
@@ -223,11 +307,13 @@ export default async function CalculatorPage({
 
         {article && (
           <section className="mt-20">
-            <ArticleSection {...article} />
+            <ArticleSection
+              {...article}
+            />
           </section>
         )}
 
-        {/* Related */}
+        {/* Related Calculators */}
 
         <section className="mt-20">
           <RelatedCalculators
