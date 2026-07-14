@@ -106,6 +106,14 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 
   verification: {
@@ -114,6 +122,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
   themeColor: "#2563eb",
 };
 
@@ -122,8 +132,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const organizationSchema = {
+    const organizationSchema = {
     "@context": "https://schema.org",
+
     "@type": "Organization",
 
     name: "FinWise",
@@ -133,9 +144,12 @@ export default function RootLayout({
     logo: `${BASE_URL}/icon-512.png`,
 
     description:
-      "Free Financial Calculators for India.",
+      "Free Financial Calculators for India including SIP, EMI, FD, RD, PPF, EPF, NPS, HRA, Gratuity and Income Tax Calculators.",
 
-    sameAs: [],
+
+    sameAs: [
+  // Add social profile URLs here later
+],
   };
 
   const websiteSchema = {
@@ -147,13 +161,8 @@ export default function RootLayout({
 
     url: BASE_URL,
 
-    potentialAction: {
-      "@type": "SearchAction",
-
-      target: `${BASE_URL}/calculators?search={search_term_string}`,
-
-      "query-input": "required name=search_term_string",
-    },
+    description:
+      "Free Financial Calculators for India.",
   };
 
   return (
@@ -170,7 +179,9 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
+            __html: JSON.stringify(
+              organizationSchema
+            ),
           }}
         />
 
@@ -179,7 +190,9 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(websiteSchema),
+            __html: JSON.stringify(
+              websiteSchema
+            ),
           }}
         />
 
@@ -195,15 +208,17 @@ export default function RootLayout({
           strategy="afterInteractive"
         >
           {`
-            window.dataLayer = window.dataLayer || [];
+                      window.dataLayer = window.dataLayer || [];
 
             function gtag() {
               dataLayer.push(arguments);
             }
 
-            gtag('js', new Date());
+            gtag("js", new Date());
 
-            gtag('config', 'G-2345F2VRYG');
+            gtag("config", "G-2345F2VRYG", {
+              page_path: window.location.pathname,
+            });
           `}
         </Script>
 
