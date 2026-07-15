@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "FinWise - Free Financial Calculators for India",
 
   description:
-    "Free online financial calculators for SIP, EMI, FD, RD, PPF, EPF, NPS, HRA, Gratuity, Income Tax and more. Plan your finances smarter with FinWise.",
+    "Free online financial calculators for SIP, EMI, FD, RD, PPF, EPF, NPS, Income Tax, HRA, Gratuity and more.",
 
   alternates: {
     canonical: "https://finwise-silk.vercel.app",
@@ -20,12 +20,18 @@ export const metadata: Metadata = {
 
   openGraph: {
     title: "FinWise - Financial Calculators for India",
+
     description:
       "Calculate SIP, EMI, FD, RD, Income Tax and more using free online financial calculators.",
+
     url: "https://finwise-silk.vercel.app",
+
     siteName: "FinWise",
+
     locale: "en_IN",
+
     type: "website",
+
     images: [
       {
         url: "/og-image.png",
@@ -38,42 +44,99 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
+
     title: "FinWise",
+
     description:
       "Free Financial Calculators for India.",
+
     images: ["/og-image.png"],
   },
 };
 
 export default function Home() {
+
   const websiteSchema = {
+    
     "@context": "https://schema.org",
+
     "@type": "WebSite",
+
     name: "FinWise",
+
     url: "https://finwise-silk.vercel.app",
+
     potentialAction: {
       "@type": "SearchAction",
+
       target:
         "https://finwise-silk.vercel.app/calculators?search={search_term_string}",
+
       "query-input":
         "required name=search_term_string",
     },
   };
 
+  const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Is FinWise free to use?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. FinWise is completely free to use. All financial calculators and guides are available without registration.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Are the calculator results accurate?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Every calculator uses standard financial formulas to provide reliable estimates.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Which calculators are available?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "FinWise offers SIP, EMI, FD, RD, PPF, EPF, NPS, Income Tax, HRA, Gratuity, CAGR, CTC to In-Hand Salary and many more financial calculators.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do I need to create an account?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No. You can use every calculator instantly without creating an account.",
+      },
+    },
+  ],
+};
+
   return (
     <>
       <script
-        type="application/ld+json"
+        id="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(websiteSchema),
         }}
       />
+       <script
+    id="faq-schema"
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify(faqSchema),
+    }}
+  />
 
       <Navbar />
 
       <main>
 
-        {/* Hero */}
+        {/* HERO */}
 
         <section className="relative overflow-hidden">
 
@@ -88,16 +151,24 @@ export default function Home() {
               </span>
 
               <h1 className="mt-8 text-5xl font-extrabold tracking-tight md:text-7xl">
+
                 Make Smarter
+
                 <span className="block text-blue-600">
                   Financial Decisions
                 </span>
+
               </h1>
 
               <p className="mt-8 max-w-3xl text-xl leading-9 text-muted-foreground">
-                Free online financial calculators for SIP, EMI, FD, RD,
-                PPF, EPF, NPS, Income Tax, Gratuity and more.
-                Calculate instantly and make informed financial decisions.
+
+                Free online financial calculators for SIP, EMI,
+                FD, RD, PPF, EPF, NPS, Income Tax,
+                HRA, Gratuity and more.
+
+                Calculate instantly and make informed
+                financial decisions.
+
               </p>
 
               <div className="mt-10 flex flex-wrap gap-4">
@@ -130,11 +201,10 @@ export default function Home() {
 
               </div>
 
-              {/* Stats */}
-
               <div className="mt-16 grid gap-6 sm:grid-cols-3">
 
                 <div className="rounded-2xl border bg-white p-6 shadow-sm">
+
                   <div className="text-3xl font-bold text-blue-600">
                     13+
                   </div>
@@ -142,9 +212,11 @@ export default function Home() {
                   <p className="mt-2 text-muted-foreground">
                     Financial Calculators
                   </p>
+
                 </div>
 
                 <div className="rounded-2xl border bg-white p-6 shadow-sm">
+
                   <div className="text-3xl font-bold text-blue-600">
                     10+
                   </div>
@@ -152,9 +224,11 @@ export default function Home() {
                   <p className="mt-2 text-muted-foreground">
                     Finance Articles
                   </p>
+
                 </div>
 
                 <div className="rounded-2xl border bg-white p-6 shadow-sm">
+
                   <div className="text-3xl font-bold text-blue-600">
                     Free
                   </div>
@@ -162,6 +236,7 @@ export default function Home() {
                   <p className="mt-2 text-muted-foreground">
                     Forever to Use
                   </p>
+
                 </div>
 
               </div>
@@ -295,8 +370,6 @@ export default function Home() {
           </div>
 
         </section>
-
-        {/* Existing Components */}
 
         <PopularCalculators />
 
