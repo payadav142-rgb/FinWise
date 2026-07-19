@@ -55,9 +55,7 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-
   const websiteSchema = {
-    
     "@context": "https://schema.org",
 
     "@type": "WebSite",
@@ -78,65 +76,82 @@ export default function Home() {
   };
 
   const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "Is FinWise free to use?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. FinWise is completely free to use. All financial calculators and guides are available without registration.",
+    "@context": "https://schema.org",
+
+    "@type": "FAQPage",
+
+    mainEntity: [
+      {
+        "@type": "Question",
+
+        name: "Is FinWise free to use?",
+
+        acceptedAnswer: {
+          "@type": "Answer",
+
+          text: "Yes. FinWise is completely free to use. All financial calculators and guides are available without registration.",
+        },
       },
-    },
-    {
-      "@type": "Question",
-      name: "Are the calculator results accurate?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. Every calculator uses standard financial formulas to provide reliable estimates.",
+      {
+        "@type": "Question",
+
+        name: "Are the calculator results accurate?",
+
+        acceptedAnswer: {
+          "@type": "Answer",
+
+          text: "Yes. Every calculator uses standard financial formulas to provide reliable estimates.",
+        },
       },
-    },
-    {
-      "@type": "Question",
-      name: "Which calculators are available?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "FinWise offers SIP, EMI, FD, RD, PPF, EPF, NPS, Income Tax, HRA, Gratuity, CAGR, CTC to In-Hand Salary and many more financial calculators.",
+      {
+        "@type": "Question",
+
+        name: "Which calculators are available?",
+
+        acceptedAnswer: {
+          "@type": "Answer",
+
+          text: "FinWise offers SIP, EMI, FD, RD, PPF, EPF, NPS, Income Tax, HRA, Gratuity, CAGR, CTC to In-Hand Salary and many more financial calculators.",
+        },
       },
-    },
-    {
-      "@type": "Question",
-      name: "Do I need to create an account?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "No. You can use every calculator instantly without creating an account.",
+      {
+        "@type": "Question",
+
+        name: "Do I need to create an account?",
+
+        acceptedAnswer: {
+          "@type": "Answer",
+
+          text: "No. You can use every calculator instantly without creating an account.",
+        },
       },
-    },
-  ],
-};
+    ],
+  };
 
   return (
     <>
+      {/* Website Schema */}
       <script
-        id="application/ld+json"
+        id="website-schema"
+        type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(websiteSchema),
         }}
       />
-       <script
-    id="faq-schema"
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{
-      __html: JSON.stringify(faqSchema),
-    }}
-  />
+
+      {/* FAQ Schema */}
+      <script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema),
+        }}
+      />
 
       <Navbar />
 
       <main>
-
-        {/* HERO */}
+                {/* HERO */}
 
         <section className="relative overflow-hidden">
 
@@ -370,10 +385,15 @@ export default function Home() {
           </div>
 
         </section>
+                {/* Popular Calculators */}
 
         <PopularCalculators />
 
+        {/* Calculator Categories */}
+
         <Categories />
+
+        {/* Why FinWise */}
 
         <WhyFinWise />
                 {/* Final CTA */}
@@ -481,3 +501,4 @@ export default function Home() {
     </>
   );
 }
+      
